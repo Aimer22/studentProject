@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >-->
+<web-app>
+  <display-name>StudentProject</display-name>
+
+  <!--配置Servlet -->
+  <servlet>
+    <description></description>
+    <display-name>loginServlet</display-name>
+    <servlet-name>loginServlet</servlet-name>
+    <servlet-class>com.cn.servlet.loginServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>loginServlet</servlet-name>
+    <url-pattern>/loginServlet</url-pattern>
+  </servlet-mapping>
+
+<servlet>
+  <servlet-name>registrationServlet</servlet-name>
+  <servlet-class>com.cn.servlet.registrationServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>registrationServlet</servlet-name>
+<url-pattern>/registrationServlet</url-pattern>
+</servlet-mapping>
+  <servlet>
+    <servlet-name>firstStepServlet</servlet-name>
+    <servlet-class>com.cn.servlet.firstStepServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>firstStepServlet</servlet-name>
+    <url-pattern>/firstStepServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>getAllStudentServlet</servlet-name>
+    <servlet-class>com.cn.servlet.getAllStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getAllStudentServlet</servlet-name>
+    <url-pattern>/getAllStudentServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>updateStudentInfoServlet</servlet-name>
+    <servlet-class>com.cn.servlet.updateStudentInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateStudentInfoServlet</servlet-name>
+    <url-pattern>/updateStudentInfoServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>deleteStudentInfoServlet</servlet-name>
+    <servlet-class>com.cn.servlet.deleteStudentInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteStudentInfoServlet</servlet-name>
+    <url-pattern>/deleteStudentInfoServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>getAllDormsServlet</servlet-name>
+    <servlet-class>com.cn.servlet.getAllDormsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getAllDormsServlet</servlet-name>
+    <url-pattern>/getAllDormsServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>getAllTeachersServlet</servlet-name>
+    <servlet-class>com.cn.servlet.getAllTeachersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getAllTeachersServlet</servlet-name>
+    <url-pattern>/getAllTeachersServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>getAllTuitionsServlet</servlet-name>
+    <servlet-class>com.cn.servlet.getAllTuitionsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getAllTuitionsServlet</servlet-name>
+    <url-pattern>/getAllTuitionsServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>
+
+
+
