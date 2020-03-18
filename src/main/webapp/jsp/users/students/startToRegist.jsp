@@ -20,7 +20,7 @@
     <font size="20px" color="" class="f1">OH MY GOD!</font><br>
     <font size="4" color="">亲爱的同学,您还没有开始报到。</font><br>
     <font size="5" color="">赶紧报到吧。</font><br>
-    <button type="button" value="" class="button" onclick="javascrtpt:window.location.href='<%=basePath%>jsp/users/students/firstStep.jsp'"><span>点击此处开始报到</span></button>
+    <button type="button" value="" class="button" onclick="javascrtpt:window.location.href='<%=basePath%>firstStepServlet'"><span>点击此处开始报到</span></button>
 </div>
 <img src="<%=basePath%>img/bilibili1.png" >
 </body>

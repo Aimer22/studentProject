@@ -59,7 +59,6 @@ public class StudentServiceImpl implements StudentService {
 			list = studentDao.getAll();
 		} catch (Exception e) {
 			logger.error(e.toString());
-			e.printStackTrace();
 		}
 		return list;
 	}

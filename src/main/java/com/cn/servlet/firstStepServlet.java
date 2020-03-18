@@ -1,10 +1,12 @@
 package com.cn.servlet;
 
-import com.cn.domain.Student;
-import com.cn.domain.StudentInfo;
-import com.cn.domain.Tuition;
+import com.cn.domain.*;
+import com.cn.service.DormService;
+import com.cn.service.StuClassService;
 import com.cn.service.StudentInfoService;
 import com.cn.service.TuitionService;
+import com.cn.service.impl.DormServiceImpl;
+import com.cn.service.impl.StuClassServiceImpl;
 import com.cn.service.impl.StudentInfoServiceImpl;
 import com.cn.service.impl.TuitionServiceImpl;
 import org.apache.log4j.Logger;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 
 public class firstStepServlet extends HttpServlet {
     private static Logger logger=Logger.getLogger(firstStepServlet.class);
@@ -49,19 +52,15 @@ public class firstStepServlet extends HttpServlet {
          * 将数据封装成对象
          */
         StudentInfo studentInfo=new StudentInfo();
-        studentInfo.setStuId(stuId);
         studentInfo.setAge(age);
         studentInfo.setBirthPlace(birthPlace);
         studentInfo.setNational(stuNational);
         studentInfo.setCampus(campus);
         studentInfo.setMajor(major);
         studentInfo.setStuClass(stuClass);
-        studentInfo.setDormitory(dorm);
         studentInfo.setPhone(phone);
         studentInfo.setSex(sex);
         studentInfo.setIfPay(false);
-        studentInfo.setUserName(student.getUsername());
-        studentInfo.setStuName(student.getStuName());
 
         Tuition tuition=new Tuition();
         tuition.setInsurance(200);
@@ -81,13 +80,13 @@ public class firstStepServlet extends HttpServlet {
             int recordNum=studentInfoService.addStudentInfo(studentInfo);
             int recordNUm2=tuitionService.addTuition(tuition);
             System.out.println(recordNUm2);
-            StudentInfo stuInfo=studentInfoService.getStuInfoById(stuId);
+//            StudentInfo stuInfo=studentInfoService.getStuInfoById(stuId);
             Tuition tuition1=tuitionService.getTuitionBystuId(stuId);
 
             /**
              * 将数据存入Session
              */
-            session.setAttribute("studentInfo",stuInfo);
+//            session.setAttribute("studentInfo",stuInfo);
             session.setAttribute("tuition",tuition1);
 
             /**
@@ -108,6 +107,14 @@ public class firstStepServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=utf-8");
+        request.setCharacterEncoding("utf-8");
+        StuClassService stu = new StuClassServiceImpl();
+        DormService ds = new DormServiceImpl();
+        List<StuClass> stuClasses = stu.getAllClass();
+        List<Dorm> dorms = ds.getAllDorm();
+        request.setAttribute("stuClasses",stuClasses);
+        request.setAttribute("dorms",dorms);
+        request.getRequestDispatcher("jsp/users/students/firstStep.jsp").forward(request,response);
     }
 }

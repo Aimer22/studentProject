@@ -21,12 +21,6 @@
     <form action="<%=basePath%>updateStudentInfoServlet" method="post" class="form form-horizontal" id="form-member-add">
         <input type="hidden" name="trainId" value="">
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>学生姓名：</label>
-            <div class="formControls col-xs-8 col-sm-9" style="width:300px;">
-                <input type="text" class="input-text" value="${studentInfo.stuName}" placeholder="" id="stuName" name="stuName">
-            </div>
-        </div>
-        <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
             <div class="formControls col-xs-8 col-sm-9" style="width:300px;">
                 <input type="text" class="input-text" value="${studentInfo.sex}" placeholder="" id="sex" name="sex">
@@ -71,7 +65,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>宿舍：</label>
             <div class="formControls col-xs-8 col-sm-9" style="width:300px;">
-                <input type="text" class="input-text" value="${studentInfo.dormitory}" placeholder="" id="dorm" name="dorm">
+                <input type="text" class="input-text" value="${studentInfo.dorm}" placeholder="" id="dorm" name="dorm">
             </div>
         </div>
         <div class="row cl">

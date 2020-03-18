@@ -47,7 +47,6 @@ public class registrationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
-//		String flag=request.getParameter("flag");
 		int flag=Integer.parseInt(request.getParameter("flag")); 
 		System.out.println(flag);
 		//检测身份
@@ -65,6 +64,9 @@ public class registrationServlet extends HttpServlet {
 			student.setStuName(stuName);
 			student.setUsername(userName);
 			student.setPassword(passWord);
+			student.setIfUse(false);
+			student.setIf_finished_firstStep(false);
+			student.setIf_finished_secondStep(false);
 			student.setRegisterTime(regTime);
 			
 			/**

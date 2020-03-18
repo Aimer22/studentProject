@@ -2,6 +2,7 @@ package com.cn.service.impl;
 
 import com.cn.dao.StudentInfoDao;
 import com.cn.dao.impl.StudentInfoDaoImpl;
+import com.cn.domain.ShowStuInfo;
 import com.cn.domain.StudentInfo;
 import com.cn.service.StudentInfoService;
 import org.apache.log4j.Logger;
@@ -28,9 +29,9 @@ public class StudentInfoServiceImpl implements StudentInfoService {
         }
 
     @Override
-    public int deleteStuInfo(String stuId){
+    public int deleteStuInfo(int stuId){
         int recordNum=0;
-        if(stuId !=null){
+        if(stuId !=0){
             try {
                 recordNum=studentInfoDao.deleteStudentInfo(stuId);
             } catch (Exception e){
@@ -70,9 +71,21 @@ public class StudentInfoServiceImpl implements StudentInfoService {
     }
 
     @Override
-    public StudentInfo getStuInfoById(String stuId){
+    public List<ShowStuInfo> showAllStuInfo() {
+        List<ShowStuInfo> list=null;
+        try {
+            list=studentInfoDao.ShowAllStuInfo();
+        }catch(Exception e){
+            logger.error(e.toString());
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
+    public StudentInfo getStuInfoById(int stuId){
         StudentInfo studentInfo=null;
-        if(stuId!=null){
+        if(stuId!=0){
             try {
                 studentInfo=studentInfoDao.getStuInfoByStuId(stuId);
             }catch (Exception e){
@@ -86,17 +99,17 @@ public class StudentInfoServiceImpl implements StudentInfoService {
     }
 
     @Override
-    public StudentInfo getStuInfoByName(String stuName){
+    public StudentInfo getStuInfoByNo(int stuNo){
         StudentInfo studentInfo=null;
-        if(stuName!=null&&!"".equals(stuName)){
+        if(stuNo!=0){
             try {
-                studentInfo=studentInfoDao.getStuInfoByStuName(stuName);
+                studentInfo=studentInfoDao.getStuInfoByStuNo(stuNo);
             }catch (Exception e){
                 logger.error(e.toString());
                 e.printStackTrace();
             }
         }else{
-            logger.info("StudentInfo中stuName为空");
+            logger.info("StudentInfo中stuNo为空");
         }
         return studentInfo;
     }

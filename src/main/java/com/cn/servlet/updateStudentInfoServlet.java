@@ -1,8 +1,11 @@
 package com.cn.servlet;
 
+import com.cn.domain.Student;
 import com.cn.domain.StudentInfo;
 import com.cn.service.StudentInfoService;
+import com.cn.service.StudentService;
 import com.cn.service.impl.StudentInfoServiceImpl;
+import com.cn.service.impl.StudentServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,12 +17,12 @@ import java.io.PrintWriter;
 public class updateStudentInfoServlet extends HttpServlet {
     StudentInfoService studentInfoService=new StudentInfoServiceImpl();
     StudentInfo studentInfo=new StudentInfo();
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("utf-8");
-
         // 请求数据，并将数据进行封装
-        studentInfo.setStuName(request.getParameter("stuName"));
         studentInfo.setSex(request.getParameter("sex"));
         studentInfo.setAge(Integer.valueOf(request.getParameter("age")));
         studentInfo.setBirthPlace(request.getParameter("home"));
@@ -27,7 +30,7 @@ public class updateStudentInfoServlet extends HttpServlet {
         studentInfo.setMajor(request.getParameter("major"));
         studentInfo.setNational(request.getParameter("national"));
         studentInfo.setStuClass(request.getParameter("stuClass"));
-        studentInfo.setDormitory(request.getParameter("dorm"));
+        studentInfo.setDorm(request.getParameter("dorm"));
         studentInfo.setPhone(request.getParameter("phone"));
         int recordNum=studentInfoService.updateStuInfo(studentInfo);
         PrintWriter out=response.getWriter();
@@ -42,9 +45,12 @@ public class updateStudentInfoServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       String stuId=request.getParameter("stuId");
+
+       int stuId=Integer.valueOf(request.getParameter("stuId"));
 
        studentInfo=studentInfoService.getStuInfoById(stuId);
+       System.out.println(studentInfo);
+
 
         request.setAttribute("studentInfo",studentInfo);
         request.getRequestDispatcher("jsp/admins/updateStudentInfo.jsp").forward(request,response);

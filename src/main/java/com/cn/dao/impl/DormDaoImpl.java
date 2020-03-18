@@ -60,7 +60,6 @@ public class DormDaoImpl implements DormDao {
 
     @Override
     public List<Dorm> getAllDorm() throws SQLException {
-        System.out.println("进来了");
         String sql="select * from dorm";
         conn= JDBCUtil.getConnection();
         pstmt=conn.prepareStatement(sql);

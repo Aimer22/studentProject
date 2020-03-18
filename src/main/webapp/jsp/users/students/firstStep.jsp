@@ -1,10 +1,13 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.cn.domain.Dorm" %>
+<%@ page import="com.cn.domain.StuClass" %><%--
   Created by IntelliJ IDEA.
   User: sousui
   Date: 2020/2/27
   Time: 20:59
   To change this template use File | Settings | File Templates.
 --%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -22,9 +25,9 @@
 <form action="<%=basePath%>firstStepServlet" method="post" class="form form-horizontal" id="form-member-add">
     <div class="d1">
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>学号 :</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>年龄 :</label>
             <div class="formControls col-xs-8 col-sm-9" style="width:300px;">
-                <input type="text" class="input-text" value="" placeholder="" id="stuId" name="stuId">
+                <input type="text" class="input-text" value="" placeholder="" id="age" name="age">
             </div>
         </div>
         <div class="row cl">
@@ -38,13 +41,6 @@
                     <use xlink:href="#icon-xingbienv"></use>
                 </svg>
                 <input type="radio" value="女" name="sex" class="r2">
-            </div>
-        </div>
-
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>年龄 :</label>
-            <div class="formControls col-xs-8 col-sm-9" style="width:300px;">
-                <input type="text" class="input-text" value="" placeholder="" id="age" name="age">
             </div>
         </div>
         <div class="row cl">
@@ -61,8 +57,13 @@
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>校区  :</label>
-            <div class="formControls col-xs-8 col-sm-9" style="width:300px;">
-                <input type="text"  class="input-text" value="" placeholder="" id="campus" name="campus">
+            <div class="formControls col-5"><span class="select-box">
+                <select class="select" name="campus">
+                    <option value="1">共青城校区</option>
+                    <option value="2">青山湖校区</option>
+                    <option value="3">瑶湖校区</option>
+                </select>
+            </span>
             </div>
         </div>
         <div class="row cl">
@@ -72,16 +73,30 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>班级  :</label>
-            <div class="formControls col-xs-8 col-sm-9" style="width:300px;">
-                <input type="text"  class="input-text" value="" placeholder="" id="stuClass" name="stuClass">
+            <label class="form-label col-xs-4 col-sm-3">班级：</label>
+            <div class="formControls col-5"><span class="select-box">
+	        <select class="select" name="flag">
+                    <option value="" selected>请选择您的班级</option>
+                <c:forEach items="${stuClasses}" var="stuClasses">
+                    <option value="${stuClasses.class_Id}">${stuClasses.class_Id}</option>
+                </c:forEach>
+	        </select>
+	        </span>
             </div>
+            <div class="col-4"> </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>宿舍  :</label>
-            <div class="formControls col-xs-8 col-sm-9" style="width:300px;">
-                <input type="text"  class="input-text" value="" placeholder="" id="dorm" name="dorm">
+            <label class="form-label col-xs-4 col-sm-3">宿舍：</label>
+            <div class="formControls col-5"><span class="select-box">
+	        <select class="select" name="flag" id="flag">
+                    <option value="" selected>请选择您的宿舍</option>
+                <c:forEach items="${dorms}" var="dorms">
+                    <option value="${dorms.dorm_Num}">${dorms.dorm_Num}</option>
+                </c:forEach>
+	        </select>
+	        </span>
             </div>
+            <div class="col-4"> </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>联系电话  :</label>

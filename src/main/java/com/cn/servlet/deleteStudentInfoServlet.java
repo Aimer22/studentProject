@@ -21,16 +21,16 @@ public class deleteStudentInfoServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("utf-8");
 
-        int recordNum=studentInfoService.deleteStuInfo(request.getParameter("stuId"));
+//        int recordNum=studentInfoService.deleteStuInfo(request.getParameter("stuId"));
         System.out.println("正在删除。。。");
         PrintWriter out = response.getWriter();
-        if(recordNum==1){
+        /*if(recordNum==1){
             out.write("<script>alert('删除成功！')"
                     +"window.location.href='getAllStudentServlet'</script>");
         }else{
             out.write("<script>alert('删除失败！')"
                     +"window.location.href='getAllStudentServlet'</script>");
-        }
+        }*/
 
     }
 }

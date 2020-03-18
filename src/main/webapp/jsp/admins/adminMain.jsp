@@ -22,12 +22,12 @@
 <header class="Hui-header cl"> <a class="Hui-logo l" title="H-ui.admin v2.3" href="/">学生报到管理系统</a> <a class="Hui-logo-m l" href="/" title="H-ui.admin">H-ui</a> <span class="Hui-subtitle l">V2.3</span>
 
     <ul class="Hui-userbar">
-        <li>您好，</li>
+        <li>您好，${admin.adminUsername}</li>
         <li class="dropDown dropDown_hover"><a href="#" class="dropDown_A"> <i class="Hui-iconfont">&#xe6d5;</i></a>
             <ul class="dropDown-menu radius box-shadow">
                 <li><a href="#">管理员信息</a></li>
-                <li><a href="#">切换账户</a></li>
-                <li><a href="#">退出</a></li>
+                <li><a href="<%=basePath%>jsp/login.jsp">切换账户</a></li>
+                <li><a href="<%=basePath%>jsp/login.jsp">退出</a></li>
             </ul>
         </li>
         <li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
@@ -66,7 +66,7 @@
             <dt><i class="Hui-iconfont">&#xe613;</i> 班级管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="" data-title="班级列表" href="javascript:void(0)">班级列表</a></li>
+                    <li><a _href="<%=basePath%>getAllClassServlet" data-title="班级列表" href="javascript:void(0)">班级列表</a></li>
                 </ul>
             </dd>
         </dl>
@@ -102,7 +102,7 @@
     <div id="iframe_box" class="Hui-article">
         <div class="show_iframe">
             <div style="display:none" class="loading"></div>
-            <iframe scrolling="yes" frameborder="0" src="../../../img/img3.jpg"></iframe>
+            <iframe scrolling="yes" frameborder="0" src="<%=basePath%>img/img3.jpg"></iframe>
         </div>
     </div>
 </section>

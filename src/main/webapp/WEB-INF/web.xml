@@ -90,6 +90,36 @@
     <url-pattern>/getAllTuitionsServlet</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>registStateServlet</servlet-name>
+    <servlet-class>com.cn.servlet.registStateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>registStateServlet</servlet-name>
+    <url-pattern>/registStateServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>addDormServlet</servlet-name>
+    <servlet-class>com.cn.servlet.addDormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addDormServlet</servlet-name>
+    <url-pattern>/addDormServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>getAllClassServlet</servlet-name>
+    <servlet-class>com.cn.servlet.getAllClassServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getAllClassServlet</servlet-name>
+    <url-pattern>/getAllClassServlet</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>jsp/login.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>
 
 

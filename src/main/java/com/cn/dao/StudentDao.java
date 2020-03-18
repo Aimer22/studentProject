@@ -23,4 +23,5 @@ public interface StudentDao {
     Student getStudentByName(String stuName) throws SQLException;
 
     Student getStudentByUserName(String username) throws SQLException;
+
 }

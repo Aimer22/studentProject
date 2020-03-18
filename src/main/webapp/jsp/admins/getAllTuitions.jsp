@@ -72,13 +72,13 @@
         </table>
     </div>
 </div>
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="lib/layer/1.9.3/layer.js"></script>
-<script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script>
-<script type="text/javascript" src="lib/My97DatePicker/WdatePicker.js"></script>
-<script type="text/javascript" src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="js/H-ui.js"></script>
-<script type="text/javascript" src="js/H-ui.admin.js"></script>
+<script type="text/javascript" src="<%=basePath%>lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>lib/layer/1.9.3/layer.js"></script>
+<script type="text/javascript" src="<%=basePath%>lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript" src="<%=basePath%>lib/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="<%=basePath%>lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>hui/js/H-ui.js"></script>
+<script type="text/javascript" src="<%=basePath%>hui/js/H-ui.admin.js"></script>
 <script type="text/javascript">
     $(function(){
         $('.table-sort').dataTable({

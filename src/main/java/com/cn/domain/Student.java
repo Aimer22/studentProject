@@ -9,18 +9,16 @@ public class Student {
 	private String password;
 	private Timestamp registerTime;
 	private Timestamp loginTime;
-	private Integer ifUse;
+	private boolean ifUse;
+	private boolean if_finished_firstStep;
+	private boolean if_finished_secondStep;
 	
 	
 	public Student() {
 		
 	}
 
-
-
-
-	public Student(Integer stuNo,  String stuName, String username, String password, Timestamp registerTime,
-			Timestamp loginTime, Integer ifUse) {
+	public Student(Integer stuNo, String stuName, String username, String password, Timestamp registerTime, Timestamp loginTime, boolean ifUse, boolean if_finished_firstStep, boolean if_finished_secondStep) {
 		this.stuNo = stuNo;
 		this.stuName = stuName;
 		this.username = username;
@@ -28,6 +26,8 @@ public class Student {
 		this.registerTime = registerTime;
 		this.loginTime = loginTime;
 		this.ifUse = ifUse;
+		this.if_finished_firstStep = if_finished_firstStep;
+		this.if_finished_secondStep = if_finished_secondStep;
 	}
 
 	public Integer getStuNo() {
@@ -57,11 +57,11 @@ public class Student {
 		return username;
 	}
 
-	public Integer getIfUse() {
+	public boolean isIfUse() {
 		return ifUse;
 	}
 
-	public void setIfUse(Integer ifUse) {
+	public void setIfUse(boolean ifUse) {
 		this.ifUse = ifUse;
 	}
 
@@ -93,30 +93,34 @@ public class Student {
 		this.loginTime = loginTime;
 	}
 
+	public boolean isIf_finished_firstStep() {
+		return if_finished_firstStep;
+	}
 
+	public void setIf_finished_firstStep(boolean if_finished_firstStep) {
+		this.if_finished_firstStep = if_finished_firstStep;
+	}
 
+	public boolean isIf_finished_secondStep() {
+		return if_finished_secondStep;
+	}
+
+	public void setIf_finished_secondStep(boolean if_finished_secondStep) {
+		this.if_finished_secondStep = if_finished_secondStep;
+	}
 
 	@Override
 	public String toString() {
-		return "Student [stuNo=" + stuNo + ",  stuName=" + stuName + ", username=" + username
-				+ ", password=" + password + ", registerTime=" + registerTime + ", loginTime=" + loginTime + ", ifUse="
-				+ ifUse + "]";
+		return "Student{" +
+				"stuNo=" + stuNo +
+				", stuName='" + stuName + '\'' +
+				", username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", registerTime=" + registerTime +
+				", loginTime=" + loginTime +
+				", ifUse=" + ifUse +
+				", if_finished_firstStep=" + if_finished_firstStep +
+				", if_finished_secondStep=" + if_finished_secondStep +
+				'}';
 	}
-
-
-
-
-
-
-	
-	
-
-
-
-	
-	
-	
-	
-	
-	
 }

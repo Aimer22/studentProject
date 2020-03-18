@@ -7,6 +7,7 @@ import com.cn.domain.Student;
 import com.cn.service.StudentService;
 import com.cn.service.impl.StudentServiceImpl;
 import com.cn.util.DateUtil;
+import org.junit.Test;
 
 public class testStudentService {
 	
@@ -27,14 +28,15 @@ public class testStudentService {
 
 		studentService.delete(10);
 	}
-	
+	@Test
 	public void testUpdate() {
-		Student student=studentService.getStudentByNo(9);
-		System.out.println(student);
-		student.setLoginTime(DateUtil.now());
+		Student student = new Student();
+		student.setStuName("cao");
+		student.setStuNo(9);
 		int recordNum=studentService.update(student);
 		System.out.println(recordNum);
 	}
+	@Test
 	public void testGetAll() {
 		List<Student> students=studentService.getAll();
 		for(Student student:students) {
@@ -61,21 +63,4 @@ public class testStudentService {
 		
 		System.out.println(student);
 	}
-		
-	
-
-	public static void main(String[] args) {
-		testStudentService testStudentService=new testStudentService();
-//		testStudentService.testAdd();
-//		testStudentService.testGetAll();
-//		testStudentService.testGetStudentByName();
-		testStudentService.testUpdate();
-//		testStudentService.testGetStudentByUserName();
-//		testStudentService.testDelete();
-	}
-
-	
-	
-	
-
 }

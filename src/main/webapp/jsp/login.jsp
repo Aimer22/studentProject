@@ -15,7 +15,7 @@
     <title>登陆界面</title>
     <style>
         body{
-            background-image:url(../img/img3.jpg);
+            background-image:url(<%=basePath%>img/img3.jpg);
             background-size:100%;
         }
 
@@ -79,6 +79,7 @@
 	          <option value="" selected>请选择您的身份</option>
 	          <option value="1">教师</option>
 	          <option value="2">学生</option>
+              <option value="3">管理员</option>
 	        </select>
 	        </span> </div>
             <div class="col-4"> </div>

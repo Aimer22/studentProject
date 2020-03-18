@@ -3,6 +3,7 @@ package com.cn.service;
 
 
 
+import com.cn.domain.ShowStuInfo;
 import com.cn.domain.StudentInfo;
 
 import java.sql.SQLException;
@@ -11,14 +12,18 @@ import java.util.List;
 public interface StudentInfoService {
     int addStudentInfo(StudentInfo studentInfo) throws SQLException;
 
-    int deleteStuInfo(String stuId);
+    int deleteStuInfo(int stuId);
 
     int updateStuInfo(StudentInfo studentInfo);
 
     List<StudentInfo> getAllStuInfo();
 
-    StudentInfo getStuInfoById(String stuId);
+    List<ShowStuInfo> showAllStuInfo();
 
-    StudentInfo getStuInfoByName(String name);
+    StudentInfo getStuInfoById(int stuId);
+
+    StudentInfo getStuInfoByNo(int stuNo);
+
+
 
 }
