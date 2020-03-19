@@ -11,13 +11,13 @@ import java.util.List;
 public interface TuitionDao {
     int addTuition(Tuition tuition) throws SQLException;
 
-    int deleteTuition(String stuId) throws SQLException;
+    int deleteTuition(int stuNo) throws SQLException;
 
     int updateTuition(Tuition tuition) throws SQLException;
 
     List<Tuition> getAllTuition() throws SQLException;
 
-    Tuition getTuitionByStuId(String stuId) throws SQLException;
+    Tuition getTuitionByStuNo(int stuNo) throws SQLException;
 
-    Tuition getTuitionByPayer(String payer) throws SQLException;
+
 }
