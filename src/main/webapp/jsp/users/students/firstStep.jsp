@@ -59,9 +59,9 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>校区  :</label>
             <div class="formControls col-5"><span class="select-box">
                 <select class="select" name="campus">
-                    <option value="1">共青城校区</option>
-                    <option value="2">青山湖校区</option>
-                    <option value="3">瑶湖校区</option>
+                    <option value="共青城校区">共青城校区</option>
+                    <option value="青山湖校区">青山湖校区</option>
+                    <option value="瑶湖校区">瑶湖校区</option>
                 </select>
             </span>
             </div>
@@ -75,7 +75,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">班级：</label>
             <div class="formControls col-5"><span class="select-box">
-	        <select class="select" name="flag">
+	        <select class="select" name="stuClass">
                     <option value="" selected>请选择您的班级</option>
                 <c:forEach items="${stuClasses}" var="stuClasses">
                     <option value="${stuClasses.class_Id}">${stuClasses.class_Id}</option>
@@ -88,7 +88,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">宿舍：</label>
             <div class="formControls col-5"><span class="select-box">
-	        <select class="select" name="flag" id="flag">
+	        <select class="select" name="dorm">
                     <option value="" selected>请选择您的宿舍</option>
                 <c:forEach items="${dorms}" var="dorms">
                     <option value="${dorms.dorm_Num}">${dorms.dorm_Num}</option>

@@ -10,13 +10,12 @@ import java.util.List;
 public interface TuitionService {
     int addTuition(Tuition tuition);
 
-    int deleteTuition(String stuId);
+    int deleteTuition(int stuNo);
 
     int updateTuition(Tuition tuition);
 
     List<Tuition> getAllTuition();
 
-    Tuition getTuitionBystuId(String stuId);
+    Tuition getTuitionBystuNo(int stuId);
 
-    Tuition getTuitionByPayer(String payer);
 }

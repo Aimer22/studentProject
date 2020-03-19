@@ -89,7 +89,6 @@ public class loginServlet extends HttpServlet {
 					
 					//更新登录信息
 					student.setIfUse(true);
-					System.out.println("以改变");
 					student.setLoginTime(DateUtil.now());
 					studentService.update(student);
 					

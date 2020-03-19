@@ -1,14 +1,8 @@
 package com.cn.servlet;
 
 import com.cn.domain.*;
-import com.cn.service.DormService;
-import com.cn.service.StuClassService;
-import com.cn.service.StudentInfoService;
-import com.cn.service.TuitionService;
-import com.cn.service.impl.DormServiceImpl;
-import com.cn.service.impl.StuClassServiceImpl;
-import com.cn.service.impl.StudentInfoServiceImpl;
-import com.cn.service.impl.TuitionServiceImpl;
+import com.cn.service.*;
+import com.cn.service.impl.*;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -30,9 +24,8 @@ public class firstStepServlet extends HttpServlet {
         /**
          * 获取页面请求信息
          */
-        String stuId=request.getParameter("stuId");
-        String sex=request.getParameter("sex");
         int age=Integer.parseInt(request.getParameter("age"));
+        String sex=request.getParameter("sex");
         String birthPlace=request.getParameter("birthPlace");
         String stuNational=request.getParameter("stuNational");
         String campus=request.getParameter("campus");
@@ -46,8 +39,6 @@ public class firstStepServlet extends HttpServlet {
          */
         Student student=(Student) request.getSession().getAttribute("student");
         HttpSession session=request.getSession();
-
-
         /**
          * 将数据封装成对象
          */
@@ -60,15 +51,16 @@ public class firstStepServlet extends HttpServlet {
         studentInfo.setStuClass(stuClass);
         studentInfo.setPhone(phone);
         studentInfo.setSex(sex);
+        studentInfo.setDorm(dorm);
         studentInfo.setIfPay(false);
+        studentInfo.setStuNo(student.getStuNo());
 
         Tuition tuition=new Tuition();
         tuition.setInsurance(200);
         tuition.setAccommodation(1000);
         tuition.setFees(5000);
-        tuition.setPayer(student.getStuName());
         tuition.setSpendOnBook(400);
-        tuition.setStuId(request.getParameter("stuId"));
+        tuition.setStuNo(student.getStuNo());
         tuition.setStateOfPay(false);
 
         /**
@@ -78,22 +70,24 @@ public class firstStepServlet extends HttpServlet {
         TuitionService tuitionService=new TuitionServiceImpl();
         try {
             int recordNum=studentInfoService.addStudentInfo(studentInfo);
-            int recordNUm2=tuitionService.addTuition(tuition);
-            System.out.println(recordNUm2);
-//            StudentInfo stuInfo=studentInfoService.getStuInfoById(stuId);
-            Tuition tuition1=tuitionService.getTuitionBystuId(stuId);
+            int recordNum2=tuitionService.addTuition(tuition);
+            System.out.println(recordNum2);
+            Tuition tuitions=tuitionService.getTuitionBystuNo(student.getStuNo());
 
             /**
              * 将数据存入Session
              */
-//            session.setAttribute("studentInfo",stuInfo);
-            session.setAttribute("tuition",tuition1);
+            session.setAttribute("tuition",tuitions);
 
             /**
              * 检测数据是否存入数据库
              */
             PrintWriter out=response.getWriter();
-            if(recordNum==1&&recordNUm2==1) {
+            if(recordNum==1&&recordNum2==1) {
+                //更新学生账户信息
+                StudentService studentService = new StudentServiceImpl();
+                student.setIf_finished_firstStep(true);
+                studentService.update(student);
                 out.write("<script>alert('完善信息成功！');"+"window.location.href='jsp/users/students/secondStep.jsp'</script>");
             }else {
                 out.write("<script>alert('很抱歉，修改失败。');"+"window.location.href='jsp/users/students/firstStep.jsp'</script>");

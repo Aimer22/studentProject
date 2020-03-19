@@ -25,11 +25,11 @@ public class TuitionServiceImpl implements TuitionService {
     }
 
     @Override
-    public int deleteTuition(String stuId) {
+    public int deleteTuition(int stuNo) {
         int recordNum=0;
-        if(stuId!=null){
+        if(stuNo!=0){
             try {
-                recordNum=tuitionDao.deleteTuition(stuId);
+                recordNum=tuitionDao.deleteTuition(stuNo);
             } catch (Exception e){
                 logger.error(e.toString());
             }
@@ -64,33 +64,17 @@ public class TuitionServiceImpl implements TuitionService {
     }
 
     @Override
-    public Tuition getTuitionBystuId(String stuId) {
+    public Tuition getTuitionBystuNo(int stuNo) {
         Tuition tuition=null;
-        if(stuId!=null){
+        if(stuNo!=0){
             try {
-                tuition=tuitionDao.getTuitionByStuId(stuId);
+                tuition=tuitionDao.getTuitionByStuNo(stuNo);
             }catch (Exception e){
                 logger.error(e.toString());
                 e.printStackTrace();
             }
         }else{
-            logger.info("Tuition中stuId为空");
-        }
-        return tuition;
-    }
-
-    @Override
-    public Tuition getTuitionByPayer(String payer) {
-        Tuition tuition=null;
-        if(payer!=null){
-            try {
-                tuition=tuitionDao.getTuitionByPayer(payer);
-            }catch (Exception e){
-                logger.error(e.toString());
-                e.printStackTrace();
-            }
-        }else{
-            logger.info("Tuition中payer为空");
+            logger.info("Tuition中stuNo为空");
         }
         return tuition;
     }

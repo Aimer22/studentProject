@@ -4,8 +4,6 @@ import java.sql.Timestamp;
 
 public class Tuition {
     private Integer orderNo;
-    private String stuId;
-    private String payer;
     private Integer fees;
     private Integer spendOnBook;
     private Integer accommodation;
@@ -13,14 +11,13 @@ public class Tuition {
     private Integer amount;
     private Timestamp payTime;
     private boolean stateOfPay;
+    private Integer stuNo;
 
     public Tuition() {
     }
 
-    public Tuition(Integer orderNo, String stuId, String payer, Integer fees, Integer spendOnBook, Integer accommodation, Integer insurance, Integer amount, Timestamp payTime, boolean stateOfPay) {
+    public Tuition(Integer orderNo, Integer fees, Integer spendOnBook, Integer accommodation, Integer insurance, Integer amount, Timestamp payTime, boolean stateOfPay, Integer stuNo) {
         this.orderNo = orderNo;
-        this.stuId = stuId;
-        this.payer = payer;
         this.fees = fees;
         this.spendOnBook = spendOnBook;
         this.accommodation = accommodation;
@@ -28,6 +25,7 @@ public class Tuition {
         this.amount = amount;
         this.payTime = payTime;
         this.stateOfPay = stateOfPay;
+        this.stuNo = stuNo;
     }
 
     public Integer getOrderNo() {
@@ -38,20 +36,12 @@ public class Tuition {
         this.orderNo = orderNo;
     }
 
-    public String getStuId() {
-        return stuId;
+    public Integer getFees() {
+        return fees;
     }
 
-    public void setStuId(String stuId) {
-        this.stuId = stuId;
-    }
-
-    public String getPayer() {
-        return payer;
-    }
-
-    public void setPayer(String payer) {
-        this.payer = payer;
+    public void setFees(Integer fees) {
+        this.fees = fees;
     }
 
     public Integer getSpendOnBook() {
@@ -102,20 +92,18 @@ public class Tuition {
         this.stateOfPay = stateOfPay;
     }
 
-    public Integer getFees() {
-        return fees;
+    public Integer getStuNo() {
+        return stuNo;
     }
 
-    public void setFees(Integer fees) {
-        this.fees = fees;
+    public void setStuNo(Integer stuNo) {
+        this.stuNo = stuNo;
     }
 
     @Override
     public String toString() {
         return "Tuition{" +
                 "orderNo=" + orderNo +
-                ", stuId='" + stuId + '\'' +
-                ", payer='" + payer + '\'' +
                 ", fees=" + fees +
                 ", spendOnBook=" + spendOnBook +
                 ", accommodation=" + accommodation +
@@ -123,6 +111,7 @@ public class Tuition {
                 ", amount=" + amount +
                 ", payTime=" + payTime +
                 ", stateOfPay=" + stateOfPay +
+                ", stuNo=" + stuNo +
                 '}';
     }
 }

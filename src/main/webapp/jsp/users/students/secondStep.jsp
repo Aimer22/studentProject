@@ -15,9 +15,9 @@
     <title>报到第二步</title>
     <link href="<%=basePath%>hui/css/H-ui.min.css" rel="stylesheet" type="text/css" />
     <link href="<%=basePath%>iconfont-cn/iconfont.css" rel="stylesheet" type="text/css" />
-<%--    <link href="<%=basePath%>lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />--%>
 </head>
 <body>
+<form action="<%=basePath%>secondStepServlet" method="post">
 <div class="mt-20">
     <table class="table table-border table-bordered table-bg table-hover table-sort">
         <thead>
@@ -34,8 +34,8 @@
         </thead>
         <tbody>
         <tr class="text-c">
-            <td>${studentInfo.stuId}</td>
-            <td>${tuition.payer}</td>
+            <td>${student.stuNo}</td>
+            <td>${student.stuName}</td>
             <td>${studentInfo.major}</td>
             <td>${tuition.fees}</td>
             <td>${tuition.spendOnBook}</td>
@@ -70,5 +70,7 @@
     </table>
 </div>
 <script type="text/javascript" src="<%=basePath%>iconfont-cn/iconfont.js"></script>
+</form>
 </body>
+
 </html>

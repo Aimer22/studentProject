@@ -13,21 +13,9 @@ public class TuitionTest {
     private Tuition tuition=new Tuition();
     private List<Tuition> tuitionList=new ArrayList<Tuition>();
     public void testAdd(){
-        tuition.setStuId("168206211");
-        tuition.setPayer("cs");
-        tuition.setAccommodation(400);
-        tuition.setSpendOnBook(400);
-        tuition.setInsurance(400);
-        tuition.setFees(5000);
-        tuition.setPayTime(DateUtil.now());
-        tuition.setStateOfPay(false);
 
-        int recordNum=tuitionService.addTuition(tuition);
-        System.out.println(recordNum);
     }
     public void deleteTuition(){
-        int state=tuitionService.deleteTuition("168206211");
-        System.out.println(state);
     }
 
     public void testGetAllTuition(){
@@ -38,18 +26,10 @@ public class TuitionTest {
     }
 
     public void testGetTuitionBystuId(){
-        tuition=tuitionService.getTuitionBystuId("168206211");
-        System.out.println(tuition);
     }
     public void testGetTuitionByPayer(){
-        tuition=tuitionService.getTuitionByPayer("曹帅");
-        System.out.println(tuition);
     }
     public void testUpdate(){
-        tuition=tuitionService.getTuitionByPayer("曹帅");
-        tuition.setFees(3000);
-        int state=tuitionService.updateTuition(tuition);
-        System.out.println(state);
 
     }
 
