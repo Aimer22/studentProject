@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.dao.StuClassDao">
+    <!--配置查询所有-->
+    <insert id="addStuClass" parameterType="com.cn.domain.StuClass">
+        <selectKey keyProperty="class_No" keyColumn="class_No" resultType="int" order="AFTER">
+            select last_insert_id();
+        </selectKey>
+        insert into stuclass (class_Id,stu_Count,teacher_Name) values (#{class_Id}
+        ,#{stu_Count},#{teacher_Name});
+    </insert>
+    <delete id="deleteClass" parameterType="java.lang.String">
+        delete from stuclass where class_Id=#{class_Id};
+    </delete>
+    <update id="updateClass" parameterType="com.cn.domain.StuClass">
+        update stuclass set stu_Count=#{stu_Count},teacher_Name=#{teacher_Name} where class_Id=#{class_Id};
+    </update>
+    <select id="getAllClass" resultType="com.cn.domain.StuClass">
+        select * from stuclass;
+    </select>
+    <select id="getClassById" resultType="com.cn.domain.StuClass">
+        select * from stuclass where class_Id=#{class_Id};
+    </select>
+    <!--根据姓名模糊查询-->
+    <select id="getAllClassByName" resultType="com.cn.domain.StuClass" parameterType="string">
+        select * from stuclass where teacher_Name like #{name};
+    </select>
+</mapper>

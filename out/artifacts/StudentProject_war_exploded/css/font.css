@@ -1,0 +1,13 @@
+font.f1{
+	font-size:35px;
+	font-color:#FFFFFF;
+	animation:mymove 5s infinite;
+	/*Safari 和 Chrome:*/
+	-webkit-animation:mymove 5s infinite;
+}
+
+@keyframes mymove
+	{
+	from {color:#FFFFFF;}
+	to {color:#FF66CC;}
+}

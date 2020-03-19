@@ -1,0 +1,44 @@
+{
+  "id": "1641166",
+  "name": "student",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5271617",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e6ea",
+      "unicode_decimal": 59114
+    },
+    {
+      "icon_id": "6360092",
+      "name": "支付平台-银联",
+      "font_class": "zhifupingtai-yinlian",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "9306312",
+      "name": "支付宝",
+      "font_class": "zhifubao",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "1221225",
+      "name": "性别女",
+      "font_class": "xingbienv",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "1221226",
+      "name": "性别男",
+      "font_class": "xingbienan",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    }
+  ]
+}
