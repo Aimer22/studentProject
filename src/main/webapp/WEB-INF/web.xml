@@ -2,9 +2,8 @@
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
+         version="4.0" metadata-complete="false">
   <display-name>StudentProject</display-name>
-
   <!--配置过滤器-->
   <filter>
     <display-name>CharsetFilter</display-name>
@@ -16,128 +15,9 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   <!--配置Servlet -->
-  <servlet>
-    <description></description>
-    <display-name>loginServlet</display-name>
-    <servlet-name>loginServlet</servlet-name>
-    <servlet-class>com.cn.servlet.loginServlet</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>loginServlet</servlet-name>
-    <url-pattern>/loginServlet</url-pattern>
-  </servlet-mapping>
-
-<servlet>
-  <servlet-name>registrationServlet</servlet-name>
-  <servlet-class>com.cn.servlet.registrationServlet</servlet-class>
-</servlet>
-
-<servlet-mapping>
-<servlet-name>registrationServlet</servlet-name>
-<url-pattern>/registrationServlet</url-pattern>
-</servlet-mapping>
-  <servlet>
-    <servlet-name>firstStepServlet</servlet-name>
-    <servlet-class>com.cn.servlet.firstStepServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>firstStepServlet</servlet-name>
-    <url-pattern>/firstStepServlet</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>getAllStudentServlet</servlet-name>
-    <servlet-class>com.cn.servlet.getAllStudentServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>getAllStudentServlet</servlet-name>
-    <url-pattern>/getAllStudentServlet</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>updateStudentInfoServlet</servlet-name>
-    <servlet-class>com.cn.servlet.updateStudentInfoServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>updateStudentInfoServlet</servlet-name>
-    <url-pattern>/updateStudentInfoServlet</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>deleteStudentInfoServlet</servlet-name>
-    <servlet-class>com.cn.servlet.deleteStudentInfoServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>deleteStudentInfoServlet</servlet-name>
-    <url-pattern>/deleteStudentInfoServlet</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>getAllDormsServlet</servlet-name>
-    <servlet-class>com.cn.servlet.getAllDormsServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>getAllDormsServlet</servlet-name>
-    <url-pattern>/getAllDormsServlet</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>getAllTeachersServlet</servlet-name>
-    <servlet-class>com.cn.servlet.getAllTeachersServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>getAllTeachersServlet</servlet-name>
-    <url-pattern>/getAllTeachersServlet</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>getAllTuitionsServlet</servlet-name>
-    <servlet-class>com.cn.servlet.getAllTuitionsServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>getAllTuitionsServlet</servlet-name>
-    <url-pattern>/getAllTuitionsServlet</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>registStateServlet</servlet-name>
-    <servlet-class>com.cn.servlet.registStateServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>registStateServlet</servlet-name>
-    <url-pattern>/registStateServlet</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>addDormServlet</servlet-name>
-    <servlet-class>com.cn.servlet.addDormServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>addDormServlet</servlet-name>
-    <url-pattern>/addDormServlet</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>getAllClassServlet</servlet-name>
-    <servlet-class>com.cn.servlet.getAllClassServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>getAllClassServlet</servlet-name>
-    <url-pattern>/getAllClassServlet</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>secondStepServlet</servlet-name>
-    <servlet-class>com.cn.servlet.secondStepServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>secondStepServlet</servlet-name>
-    <url-pattern>/secondStepServlet</url-pattern>
-  </servlet-mapping>
 
   <welcome-file-list>
-    <welcome-file>jsp/login.jsp</welcome-file>
+    <welcome-file>jsp/newLogin.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
 

@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class registrationServlert
  */
+@WebServlet("/registrationServlet")
 public class registrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -80,9 +82,9 @@ public class registrationServlet extends HttpServlet {
 			 */
 			PrintWriter out=response.getWriter();
 			if(recordNumber==1) {
-				out.write("<script>alert('注册成功！');"+"window.location.href='jsp/login.jsp'</script>");
+				out.write("<script>alert('注册成功！');"+"window.location.href='jsp/newLogin.jsp'</script>");
 			}else {
-				out.write("<script>alert('很抱歉，添加失败。');"+"window.location.href='jsp/register.jsp'</script>");
+				out.write("<script>alert('很抱歉，添加失败。');"+"window.location.href='jsp/newLogin.jsp'</script>");
 			}
 			out.close();
 			
@@ -106,9 +108,9 @@ public class registrationServlet extends HttpServlet {
 			int recordNumber=teacherService.addTeacher(teacher);
 			PrintWriter out=response.getWriter();
 			if(recordNumber==1) {
-				out.write("<script>alert('注册成功！');"+"window.location.href='jsp/login.jsp'</script>");
+				out.write("<script>alert('注册成功！');"+"window.location.href='jsp/newLogin.jsp'</script>");
 			}else {
-				out.write("<script>alert('很抱歉，添加失败。');"+"window.location.href='jsp/register.jsp'</script>");
+				out.write("<script>alert('很抱歉，添加失败。');"+"window.location.href='jsp/newLogin.jsp'</script>");
 			}
 			out.close();
 			

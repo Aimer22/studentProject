@@ -1,19 +1,19 @@
 package com.cn.servlet;
 
-import com.cn.domain.Student;
+
 import com.cn.domain.StudentInfo;
 import com.cn.service.StudentInfoService;
-import com.cn.service.StudentService;
 import com.cn.service.impl.StudentInfoServiceImpl;
-import com.cn.service.impl.StudentServiceImpl;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet("/updateStudentInfoServlet")
 public class updateStudentInfoServlet extends HttpServlet {
     StudentInfoService studentInfoService=new StudentInfoServiceImpl();
     StudentInfo studentInfo=new StudentInfo();

@@ -30,9 +30,8 @@ public class testStudentService {
 	}
 	@Test
 	public void testUpdate() {
-		Student student = new Student();
-		student.setStuName("cao");
-		student.setStuNo(9);
+		Student student = studentService.getStudentByNo(19);
+		student.setLoginTime(DateUtil.now());
 		int recordNum=studentService.update(student);
 		System.out.println(recordNum);
 	}

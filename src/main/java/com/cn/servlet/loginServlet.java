@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,11 +24,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-
 /**
  * Servlet implementation class loginServlet
  */
-
+@WebServlet("/loginServlet")
 public class loginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -79,7 +79,7 @@ public class loginServlet extends HttpServlet {
 					}
 				}else {
 					out.write("<script>alert('密码有误，请重新输入。')"
-							+"window.location.href='jsp/login.jsp'</script>");
+							+"window.location.href='jsp/newLogin.jsp'</script>");
 				}
 			}
 		}
@@ -97,14 +97,14 @@ public class loginServlet extends HttpServlet {
 					
 					//跳转界面
 					out.write("<script>alert('登陆成功，欢迎您！"+student.getStuName()+"');"
-							+"window.location.href='jsp/users/students/StudentMain.jsp'</script>");
+							+"window.location.href='jsp/users/students/studentMain_1.jsp'</script>");
 					
 				}else {
 					out.write("<script>alert('密码有误，请重新输入。')"
-				+"window.location.href='pages/users/home.jsp'</script>");
+				+"window.location.href='jsp/users/newLogin.jsp'</script>");
 				}
 			} else {
-				out.write("<script>alert('该用户不存在！');" + "window.location.href='pages/users/home.jsp'</script>");
+				out.write("<script>alert('该用户不存在！');" + "window.location.href='jsp/users/newLogin.jsp'</script>");
 			}
 			}
 		if (flag==3){
@@ -123,11 +123,11 @@ public class loginServlet extends HttpServlet {
 							+"window.location.href='jsp/admins/adminMain.jsp'</script>");
 				}else{
 					out.write("<script>alert('密码有误，请重新输入。')"
-							+"window.location.href='jsp/login.jsp'</script>");
+							+"window.location.href='jsp/newLogin.jsp'</script>");
 				}
 				}else {
 				out.write("<script>alert('该用户不存在，请重新输入。')"
-						+"window.location.href='jsp/login.jsp'</script>");
+						+"window.location.href='jsp/newLogin.jsp'</script>");
 			}
 			}
 		}

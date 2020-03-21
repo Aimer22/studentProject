@@ -45,6 +45,7 @@ public class TuitionServiceImpl implements TuitionService {
                 recordNum=tuitionDao.updateTuition(tuition);
             } catch (Exception e){
                 logger.error(e.toString());
+                e.printStackTrace();
             }
         }
         return recordNum;

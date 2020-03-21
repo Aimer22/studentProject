@@ -16,6 +16,6 @@ public interface TuitionService {
 
     List<Tuition> getAllTuition();
 
-    Tuition getTuitionBystuNo(int stuId);
+    Tuition getTuitionBystuNo(int stuNo);
 
 }

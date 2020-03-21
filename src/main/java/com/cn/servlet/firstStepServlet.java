@@ -6,6 +6,7 @@ import com.cn.service.impl.*;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,10 +15,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
-
+@WebServlet("/firstStepServlet")
 public class firstStepServlet extends HttpServlet {
     private static Logger logger=Logger.getLogger(firstStepServlet.class);
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("第一步已完成");
         response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("utf-8");
 
@@ -27,7 +29,7 @@ public class firstStepServlet extends HttpServlet {
         int age=Integer.parseInt(request.getParameter("age"));
         String sex=request.getParameter("sex");
         String birthPlace=request.getParameter("birthPlace");
-        String stuNational=request.getParameter("stuNational");
+        String stuNational=request.getParameter("national");
         String campus=request.getParameter("campus");
         String major=request.getParameter("major");
         String stuClass=request.getParameter("stuClass");
@@ -61,6 +63,7 @@ public class firstStepServlet extends HttpServlet {
         tuition.setFees(5000);
         tuition.setSpendOnBook(400);
         tuition.setStuNo(student.getStuNo());
+        System.out.println(tuition);
         tuition.setStateOfPay(false);
 
         /**
@@ -68,6 +71,7 @@ public class firstStepServlet extends HttpServlet {
          */
         StudentInfoService studentInfoService=new StudentInfoServiceImpl();
         TuitionService tuitionService=new TuitionServiceImpl();
+
         try {
             int recordNum=studentInfoService.addStudentInfo(studentInfo);
             int recordNum2=tuitionService.addTuition(tuition);
@@ -78,6 +82,7 @@ public class firstStepServlet extends HttpServlet {
              * 将数据存入Session
              */
             session.setAttribute("tuition",tuitions);
+            session.setAttribute("studentInfo",studentInfo);
 
             /**
              * 检测数据是否存入数据库

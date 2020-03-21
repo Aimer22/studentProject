@@ -2,6 +2,7 @@ package com.cn.dao.impl;
 
 import com.cn.dao.TuitionDao;
 import com.cn.domain.Tuition;
+import com.cn.util.DateUtil;
 import com.cn.util.JDBCUtil;
 
 import java.sql.*;
@@ -14,7 +15,7 @@ public class TuitionDaoImpl implements TuitionDao {
     private ResultSet rs;
     @Override
     public int addTuition(Tuition tuition) throws SQLException {
-        String sql="insert into tuition (orderNo,fees,spendOnBook,accommodation,insurance,amount,paytime,stateOfPay,stuNo) values(?,?,?,?,?,?,?,?,?)";
+        String sql="insert into tuition (orderNo,fees,spendOnBook,accommodation,insurance,amount,timeOfPay,stateOfPay,stuNo) values(?,?,?,?,?,?,?,?,?)";
         conn= JDBCUtil.getConnection();
         pst=conn.prepareStatement(sql);
         pst.setObject(1, tuition.getOrderNo());
@@ -23,7 +24,7 @@ public class TuitionDaoImpl implements TuitionDao {
         pst.setObject(4, tuition.getAccommodation());
         pst.setObject(5, tuition.getInsurance());
         pst.setObject(6, tuition.getAmount());
-        pst.setObject(7, tuition.getPayTime());
+        pst.setObject(7, tuition.getTimeOfPay());
         pst.setObject(8, tuition.isStateOfPay());
         pst.setObject(9,tuition.getStuNo());
         int status=pst.executeUpdate();
@@ -47,23 +48,24 @@ public class TuitionDaoImpl implements TuitionDao {
 
     @Override
     public int updateTuition(Tuition tuition) throws SQLException {
-        String sql="update tuition set orderNo=?,fees=?,spendOnBook=?,accommodation=?,insurance=?,amount=?,paytime=?,stateOfPay=? where stuNo=?";
-        conn=JDBCUtil.getConnection();
-        pst=conn.prepareStatement(sql);
-        pst.setObject(1,tuition.getOrderNo());
-        pst.setObject(2,tuition.getFees());
-        pst.setObject(3,tuition.getSpendOnBook());
-        pst.setObject(4,tuition.getAccommodation());
-        pst.setObject(5,tuition.getInsurance());
-        pst.setObject(6,tuition.getAmount());
-        pst.setObject(7,tuition.getPayTime());
-        pst.setObject(8,tuition.isStateOfPay());
-        pst.setObject(9,tuition.getOrderNo());
+            String sql="update tuition set timeOfPay=?,stateOfpay=?,fees=?,spendOnBook=?,accommodation=?,insurance=?,amount=?,orderNo=? where stuNo=?";
+            conn=JDBCUtil.getConnection();
+            pst=conn.prepareStatement(sql);
+            pst.setObject(1,tuition.getTimeOfPay());
+            pst.setObject(2,tuition.isStateOfPay());
+            pst.setObject(3,tuition.getFees());
+            pst.setObject(4,tuition.getSpendOnBook());
+            pst.setObject(5,tuition.getAccommodation());
+            pst.setObject(6,tuition.getInsurance());
+            pst.setObject(7,tuition.getAmount());
+            pst.setObject(8,tuition.getOrderNo());
+            pst.setObject(9,tuition.getStuNo());
 
-        int recordNum=pst.executeUpdate();
-        conn.close();
-        pst.close();
-        return recordNum;
+
+            int recordNum=pst.executeUpdate();
+            conn.close();
+            pst.close();
+            return recordNum;
     }
 
     @Override
@@ -80,12 +82,12 @@ public class TuitionDaoImpl implements TuitionDao {
             int accommodation=rs.getInt("accommodation");
             int insurance=rs.getInt("insurance");
             int amount=rs.getInt("amount");
-            Timestamp paytime=rs.getTimestamp("paytime");
+            Timestamp timeOfPay=rs.getTimestamp("timeOfPay");
             boolean stateOfPay=rs.getBoolean("stateOfPay");
             int stuNo = rs.getInt("stuNo");
 
             Tuition tuition=new Tuition(orderNo,fees,spendOnBook,
-                    accommodation,insurance,amount,paytime,stateOfPay,stuNo);
+                    accommodation,insurance,amount,timeOfPay,stateOfPay,stuNo);
             tuitionList.add(tuition);
         }
         conn.close();
@@ -109,12 +111,12 @@ public class TuitionDaoImpl implements TuitionDao {
             int accommodation=rs.getInt("accommodation");
             int insurance=rs.getInt("insurance");
             int amount=rs.getInt("amount");
-            Timestamp paytime=rs.getTimestamp("paytime");
+            Timestamp timeOfPay=rs.getTimestamp("timeOfPay");
             boolean stateOfPay=rs.getBoolean("stateOfPay");
 
 
             tuition=new Tuition(orderNo,fees,spendOnBook,
-                    accommodation,insurance,amount,paytime,stateOfPay,stuNo);
+                    accommodation,insurance,amount,timeOfPay,stateOfPay,stuNo);
 
         }
         conn.close();

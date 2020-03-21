@@ -9,21 +9,21 @@ public class Tuition {
     private Integer accommodation;
     private Integer insurance;
     private Integer amount;
-    private Timestamp payTime;
+    private Timestamp timeOfPay;
     private boolean stateOfPay;
     private Integer stuNo;
 
     public Tuition() {
     }
 
-    public Tuition(Integer orderNo, Integer fees, Integer spendOnBook, Integer accommodation, Integer insurance, Integer amount, Timestamp payTime, boolean stateOfPay, Integer stuNo) {
+    public Tuition(Integer orderNo, Integer fees, Integer spendOnBook, Integer accommodation, Integer insurance, Integer amount, Timestamp timeOfPay, boolean stateOfPay, Integer stuNo) {
         this.orderNo = orderNo;
         this.fees = fees;
         this.spendOnBook = spendOnBook;
         this.accommodation = accommodation;
         this.insurance = insurance;
         this.amount = amount;
-        this.payTime = payTime;
+        this.timeOfPay = timeOfPay;
         this.stateOfPay = stateOfPay;
         this.stuNo = stuNo;
     }
@@ -76,12 +76,12 @@ public class Tuition {
         this.amount = amount;
     }
 
-    public Timestamp getPayTime() {
-        return payTime;
+    public Timestamp getTimeOfPay() {
+        return timeOfPay;
     }
 
-    public void setPayTime(Timestamp payTime) {
-        this.payTime = payTime;
+    public void setTimeOfPay(Timestamp timeOfPay) {
+        this.timeOfPay = timeOfPay;
     }
 
     public boolean isStateOfPay() {
@@ -109,7 +109,7 @@ public class Tuition {
                 ", accommodation=" + accommodation +
                 ", insurance=" + insurance +
                 ", amount=" + amount +
-                ", payTime=" + payTime +
+                ", timeOfPay=" + timeOfPay +
                 ", stateOfPay=" + stateOfPay +
                 ", stuNo=" + stuNo +
                 '}';
