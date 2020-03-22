@@ -47,7 +47,8 @@ public class loginServlet extends HttpServlet {
 		
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
-		int flag=Integer.parseInt(request.getParameter("flag")); 
+		int flag=Integer.parseInt(request.getParameter("flag"));
+		System.out.println(username);
 		
 		StudentService studentService=new StudentServiceImpl();
 		TeacherService teacherService=new TeacherServiveImpl();
@@ -55,6 +56,8 @@ public class loginServlet extends HttpServlet {
 		Student student=studentService.getStudentByUserName(username);
 		Teacher teacher=teacherService.getTeacherByUserName(username);
 		Admin admin=adminService.getAdminByUsername(username);
+		System.out.println(student);
+		System.out.println(flag);
 				
 		//创建session，存储登录的用户对象
 		HttpSession session=request.getSession();
@@ -86,25 +89,24 @@ public class loginServlet extends HttpServlet {
 		if(flag==2) {
 			if(student!=null) {
 				if(password.equals(student.getPassword())) {
-					
 					//更新登录信息
 					student.setIfUse(true);
 					student.setLoginTime(DateUtil.now());
 					studentService.update(student);
-					
+
 					//将登录对象加入会话
 					session.setAttribute("student", student);
-					
+
 					//跳转界面
 					out.write("<script>alert('登陆成功，欢迎您！"+student.getStuName()+"');"
 							+"window.location.href='jsp/users/students/studentMain_1.jsp'</script>");
-					
+
 				}else {
 					out.write("<script>alert('密码有误，请重新输入。')"
-				+"window.location.href='jsp/users/newLogin.jsp'</script>");
+				+"window.location.href='jsp/newLogin.jsp'</script>");
 				}
 			} else {
-				out.write("<script>alert('该用户不存在！');" + "window.location.href='jsp/users/newLogin.jsp'</script>");
+				out.write("<script>alert('该用户不存在！');" + "window.location.href='jsp/newLogin.jsp'</script>");
 			}
 			}
 		if (flag==3){

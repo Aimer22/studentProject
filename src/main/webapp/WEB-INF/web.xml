@@ -17,7 +17,7 @@
   <!--配置Servlet -->
 
   <welcome-file-list>
-    <welcome-file>jsp/newLogin.jsp</welcome-file>
+    <welcome-file>jsp/users/students/studentMain_1.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
 

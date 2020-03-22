@@ -22,37 +22,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
     <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../../assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/font-awesome.min.css" />
 
     <!-- page specific plugin styles -->
 
     <!-- text fonts -->
-    <link rel="stylesheet" href="../../../assets/css/ace-fonts.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace-fonts.css" />
 
     <!-- ace styles -->
-    <link rel="stylesheet" href="../../../assets/css/ace.min.css" id="main-ace-style" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace.min.css" id="main-ace-style" />
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="../assets/css/ace-part2.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace-part2.min.css" />
     <![endif]-->
-    <link rel="stylesheet" href="../../../assets/css/ace-skins.min.css" />
-    <link rel="stylesheet" href="../../../assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace-rtl.min.css" />
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="../assets/css/ace-ie.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace-ie.min.css" />
     <![endif]-->
 
     <!-- inline styles related to this page -->
 
     <!-- ace settings handler -->
-    <script src="../assets/js/ace-extra.min.js"></script>
+    <script src="<%=basePath%>assets/js/ace-extra.min.js"></script>
 
     <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
     <!--[if lte IE 8]>
-    <script src="../assets/js/html5shiv.min.js"></script>
-    <script src="../assets/js/respond.min.js"></script>
+    <script src="<%=basePath%>assets/js/html5shiv.min.js"></script>
+    <script src="<%=basePath%>assets/js/respond.min.js"></script>
     <![endif]-->
 </head>
 <body class="no-skin">
@@ -97,7 +97,7 @@
                 <!-- #section:basics/navbar.user_menu -->
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="../../../assets/avatars/user.jpg" alt="Jason's Photo" />
+                        <img class="nav-user-photo" src="<%=basePath%>assets/avatars/user.jpg" alt="Jason's Photo" />
                         <span class="user-info">
 									<small>你好,</small>
 									${student.stuName}
@@ -110,18 +110,23 @@
 
 
                         <li>
-                            <a href="ownInfo.jsp">
+                            <a href="<%=basePath%>getStudentInfoServlet">
                                 <i class="ace-icon fa fa-user"></i>
-                                Profile
+                                个人资料
                             </a>
                         </li>
-
                         <li class="divider"></li>
-
                         <li>
-                            <a href="newLogin.jsp">
+                            <a href="../../newLogin.jsp">
                                 <i class="ace-icon fa fa-power-off"></i>
-                                Logout
+                                登录
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="<%=basePath%>logoutServlet">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                注销
                             </a>
                         </li>
                     </ul>
@@ -184,7 +189,7 @@
 
 
             <li class="active">
-                <a href="studentMain_1.jsp">
+                <a href="jsp/users/students/studentMain_1.jsp">
                     <i class="menu-icon fa fa-tachometer"></i>
                     <span class="menu-text"> 主页 </span>
                 </a>
@@ -414,13 +419,64 @@
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
 
-                        <h1>正在维护... ...</h1>
-                        <img src="">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="widget-box">
+                                    <div class="widget-header">
+                                        <h4 class="widget-title">修改密码</h4>
+
+                                        <span class="widget-toolbar">
+													<a href="#" data-action="reload">
+														<i class="ace-icon fa fa-refresh"></i>
+													</a>
+
+													<a href="#" data-action="collapse">
+														<i class="ace-icon fa fa-chevron-up"></i>
+													</a>
+                                        </span>
+                                    </div>
 
 
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <label class="col-sm-3 control-label no-padding-right"></label>
+                                            <span class="input-icon input-icon-right">
+														<input type="text" id="form-field-icon-2" placeholder="请输入初始密码" name="old_password"/>
+														<i class="ace-icon fa fa-leaf green"></i>
+													</span>
+                                            <!-- /section:plugins/date-time.datetimepicker -->
+                                        </div>
+                                    </div>
 
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <label class="col-sm-3 control-label no-padding-right"></label>
+                                            <span class="input-icon input-icon-right">
+														<input type="text"  placeholder="请输入新密码" name="new_password"/>
+														<i class="ace-icon fa fa-leaf red"></i>
+													</span>
+                                            <!-- /section:plugins/date-time.datetimepicker -->
+                                        </div>
+                                    </div>
 
-
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <label class="col-sm-3 control-label no-padding-right"></label>
+                                            <span class="input-icon input-icon-right">
+														<input type="text"  placeholder="请确定密码" name="comfirm_password"/>
+														<i class="ace-icon fa fa-leaf red"></i>
+													</span>
+                                            <!-- /section:plugins/date-time.datetimepicker -->
+                                        </div>
+                                    </div>
+                                    <div class="form-actions center">
+                                        <button type="button" class="btn btn-sm btn-success">
+                                            确认修改
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- PAGE CONTENT ENDS -->
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -462,30 +518,31 @@
     </a>
 </div><!-- /.main-container -->
 
+
 <!-- basic scripts -->
 
 <!--[if !IE]> -->
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='../../../assets/js/jquery.min.js'>"+"<"+"/script>");
+    window.jQuery || document.write("<script src='<%=basePath%>assets/js/jquery.min.js'>"+"<"+"/script>");
 </script>
 
 <!-- <![endif]-->
 
 <!--[if IE]>
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='../assets/js/jquery1x.min.js'>"+"<"+"/script>");
+    window.jQuery || document.write("<script src='<%=basePath%>assets/js/jquery1x.min.js'>"+"<"+"/script>");
 </script>
 <![endif]-->
 <script type="text/javascript">
-    if('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+    if('ontouchstart' in document.documentElement) document.write("<script src='<%=basePath%>assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 </script>
-<script src="../../../assets/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>assets/js/bootstrap.min.js"></script>
 
 <!-- page specific plugin scripts -->
 
 <!-- ace scripts -->
-<script src="../../../assets/js/ace-elements.min.js"></script>
-<script src="../../../assets/js/ace.min.js"></script>
+<script src="<%=basePath%>assets/js/ace-elements.min.js"></script>
+<script src="<%=basePath%>assets/js/ace.min.js"></script>
 
 <!-- inline scripts related to this page -->
 
@@ -494,13 +551,13 @@
 <link rel="stylesheet" href="../docs/assets/js/themes/sunburst.css" />
 
 <script type="text/javascript"> ace.vars['base'] = '..'; </script>
-<script src="../../../assets/js/ace/elements.onpage-help.js"></script>
-<script src="../../../assets/js/ace/ace.onpage-help.js"></script>
-<script src="../../../docs/assets/js/rainbow.js"></script>
-<script src="../../../docs/assets/js/language/generic.js"></script>
-<script src="../../../docs/assets/js/language/html.js"></script>
-<script src="../../../docs/assets/js/language/css.js"></script>
-<script src="../../../docs/assets/js/language/javascript.js"></script>
+<script src="<%=basePath%>assets/js/ace/elements.onpage-help.js"></script>
+<script src="<%=basePath%>assets/js/ace/ace.onpage-help.js"></script>
+<script src="<%=basePath%>docs/assets/js/rainbow.js"></script>
+<script src="<%=basePath%>docs/assets/js/language/generic.js"></script>
+<script src="<%=basePath%>docs/assets/js/language/html.js"></script>
+<script src="<%=basePath%>docs/assets/js/language/css.js"></script>
+<script src="<%=basePath%>docs/assets/js/language/javascript.js"></script>
 </body>
 
 </html>

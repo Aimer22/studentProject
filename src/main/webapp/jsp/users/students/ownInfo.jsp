@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -15,43 +17,45 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>Blank Page - Ace Admin</title>
+    <title>报名流程</title>
 
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/registerStatus.css"/>
+    <link href="<%=basePath%>iconfont-cn/iconfont.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../../assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/font-awesome.min.css" />
 
     <!-- page specific plugin styles -->
 
     <!-- text fonts -->
-    <link rel="stylesheet" href="../../../assets/css/ace-fonts.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace-fonts.css" />
 
     <!-- ace styles -->
-    <link rel="stylesheet" href="../../../assets/css/ace.min.css" id="main-ace-style" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace.min.css" id="main-ace-style" />
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="../assets/css/ace-part2.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace-part2.min.css" />
     <![endif]-->
-    <link rel="stylesheet" href="../../../assets/css/ace-skins.min.css" />
-    <link rel="stylesheet" href="../../../assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace-rtl.min.css" />
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="../assets/css/ace-ie.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace-ie.min.css" />
     <![endif]-->
 
     <!-- inline styles related to this page -->
 
     <!-- ace settings handler -->
-    <script src="../../../assets/js/ace-extra.min.js"></script>
+    <script src="<%=basePath%>assets/js/ace-extra.min.js"></script>
 
     <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
     <!--[if lte IE 8]>
-    <script src="../assets/js/html5shiv.min.js"></script>
-    <script src="../assets/js/respond.min.js"></script>
+    <script src="<%=basePath%>assets/js/html5shiv.min.js"></script>
+    <script src="<%=basePath%>assets/js/respond.min.js"></script>
     <![endif]-->
 </head>
 
@@ -97,7 +101,7 @@
                 <!-- #section:basics/navbar.user_menu -->
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="../../../assets/avatars/user.jpg" alt="Jason's Photo" />
+                        <img class="nav-user-photo" src="<%=basePath%>assets/avatars/user.jpg" alt="Jason's Photo" />
                         <span class="user-info">
 									<small>你好,</small>
 									${student.stuName}
@@ -110,18 +114,23 @@
 
 
                         <li>
-                            <a href="ownInfo.jsp">
+                            <a href="<%=basePath%>getStudentInfoServlet">
                                 <i class="ace-icon fa fa-user"></i>
-                                Profile
+                                个人资料
                             </a>
                         </li>
-
                         <li class="divider"></li>
-
                         <li>
-                            <a href="newLogin.jsp">
+                            <a href="../../newLogin.jsp">
                                 <i class="ace-icon fa fa-power-off"></i>
-                                Logout
+                                登录
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="<%=basePath%>logoutServlet">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                注销
                             </a>
                         </li>
                     </ul>
@@ -184,7 +193,7 @@
 
 
             <li class="active">
-                <a href="studentMain_1.jsp">
+                <a href="jsp/users/students/studentMain_1.jsp">
                     <i class="menu-icon fa fa-tachometer"></i>
                     <span class="menu-text"> 主页 </span>
                 </a>
@@ -518,7 +527,11 @@
                                 <div class="profile-info-name"> 是否缴费 </div>
 
                                 <div class="profile-info-value">
-                                    <span class="editable" id="ifPay">${studentInfo.ifPay}</span>
+                                    <span class="editable" id="ifPay" style="color: green">
+                                        <c:if test="${studentInfo.ifPay}">
+                                            已缴费
+                                        </c:if>
+                                    </span>
                                 </div>
                             </div>
 
@@ -570,7 +583,7 @@
 
 <!--[if !IE]> -->
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='../../../assets/js/jquery.min.js'>"+"<"+"/script>");
+    window.jQuery || document.write("<script src='<%=basePath%>assets/js/jquery.min.js'>"+"<"+"/script>");
 </script>
 
 <!-- <![endif]-->
@@ -583,27 +596,27 @@
 <script type="text/javascript">
     if('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 </script>
-<script src="../../../assets/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>assets/js/bootstrap.min.js"></script>
 
 <!-- page specific plugin scripts -->
 
 <!-- ace scripts -->
-<script src="../../../assets/js/ace-elements.min.js"></script>
-<script src="../../../assets/js/ace.min.js"></script>
+<script src="<%=basePath%>assets/js/ace-elements.min.js"></script>
+<script src="<%=basePath%>assets/js/ace.min.js"></script>
 
 <!-- inline scripts related to this page -->
 
 <!-- the following scripts are used in demo only for onpage help and you don't need them -->
-<link rel="stylesheet" href="../../../assets/css/ace.onpage-help.css" />
-<link rel="stylesheet" href="../../../docs/assets/js/themes/sunburst.css" />
+<link rel="stylesheet" href="<%=basePath%>assets/css/ace.onpage-help.css" />
+<link rel="stylesheet" href="<%=basePath%>docs/assets/js/themes/sunburst.css" />
 
 <script type="text/javascript"> ace.vars['base'] = '..'; </script>
-<script src="../../../assets/js/ace/elements.onpage-help.js"></script>
-<script src="../../../assets/js/ace/ace.onpage-help.js"></script>
-<script src="../../../docs/assets/js/rainbow.js"></script>
-<script src="../../../docs/assets/js/language/generic.js"></script>
-<script src="../../../docs/assets/js/language/html.js"></script>
-<script src="../../../docs/assets/js/language/css.js"></script>
-<script src="../../../docs/assets/js/language/javascript.js"></script>
+<script src="<%=basePath%>assets/js/ace/elements.onpage-help.js"></script>
+<script src="<%=basePath%>assets/js/ace/ace.onpage-help.js"></script>
+<script src="<%=basePath%>docs/assets/js/rainbow.js"></script>
+<script src="<%=basePath%>docs/assets/js/language/generic.js"></script>
+<script src="<%=basePath%>docs/assets/js/language/html.js"></script>
+<script src="<%=basePath%>docs/assets/js/language/css.js"></script>
+<script src="<%=basePath%>docs/assets/js/language/javascript.js"></script>
 </body>
 </html>

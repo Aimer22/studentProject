@@ -36,13 +36,13 @@
     <link rel="stylesheet" href="<%=basePath%>assets/css/ace.min.css" id="main-ace-style" />
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="../assets/css/ace-part2.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace-part2.min.css" />
     <![endif]-->
     <link rel="stylesheet" href="<%=basePath%>assets/css/ace-skins.min.css" />
     <link rel="stylesheet" href="<%=basePath%>assets/css/ace-rtl.min.css" />
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="../assets/css/ace-ie.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>assets/css/ace-ie.min.css" />
     <![endif]-->
 
     <!-- inline styles related to this page -->
@@ -53,8 +53,8 @@
     <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
     <!--[if lte IE 8]>
-    <script src="../assets/js/html5shiv.min.js"></script>
-    <script src="../assets/js/respond.min.js"></script>
+    <script src="<%=basePath%>assets/js/html5shiv.min.js"></script>
+    <script src="<%=basePath%>assets/js/respond.min.js"></script>
     <![endif]-->
 </head>
 
@@ -111,25 +111,23 @@
 
                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
-                            <a href="#">
-                                <i class="ace-icon fa fa-cog"></i>
-                                Settings
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="profile.html">
+                            <a href="<%=basePath%>getStudentInfoServlet">
                                 <i class="ace-icon fa fa-user"></i>
-                                Profile
+                                个人资料
                             </a>
                         </li>
-
                         <li class="divider"></li>
-
                         <li>
-                            <a href="#">
+                            <a href="../../newLogin.jsp">
                                 <i class="ace-icon fa fa-power-off"></i>
-                                Logout
+                                登录
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="<%=basePath%>logoutServlet">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                注销
                             </a>
                         </li>
                     </ul>
@@ -192,7 +190,7 @@
 
 
             <li class="active">
-                <a href="studentMain_1.jsp">
+                <a href="jsp/users/students/studentMain_1.jsp">
                     <i class="menu-icon fa fa-tachometer"></i>
                     <span class="menu-text"> 主页 </span>
                 </a>
@@ -593,7 +591,7 @@
 
 <!--[if !IE]> -->
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='../../../assets/js/jquery.min.js'>"+"<"+"/script>");
+    window.jQuery || document.write("<script src='<%=basePath%>assets/js/jquery.min.js'>"+"<"+"/script>");
 </script>
 
 <!-- <![endif]-->
@@ -604,21 +602,21 @@
 </script>
 <![endif]-->
 <script type="text/javascript">
-    if('ontouchstart' in document.documentElement) document.write("<script src='../../../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+    if('ontouchstart' in document.documentElement) document.write("<script src='<%=basePath%>assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 </script>
-<script src="../../../assets/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>assets/js/bootstrap.min.js"></script>
 
 <!-- page specific plugin scripts -->
-<script src="../../../assets/js/fuelux/fuelux.wizard.min.js"></script>
-<script src="../../../assets/js/jquery.validate.min.js"></script>
-<script src="../../../assets/js/additional-methods.min.js"></script>
-<script src="../../../assets/js/bootbox.min.js"></script>
-<script src="../../../assets/js/jquery.maskedinput.min.js"></script>
-<script src="../../../assets/js/select2.min.js"></script>
+<script src="<%=basePath%>assets/js/fuelux/fuelux.wizard.min.js"></script>
+<script src="<%=basePath%>assets/js/jquery.validate.min.js"></script>
+<script src="<%=basePath%>assets/js/additional-methods.min.js"></script>
+<script src="<%=basePath%>assets/js/bootbox.min.js"></script>
+<script src="<%=basePath%>assets/js/jquery.maskedinput.min.js"></script>
+<script src="<%=basePath%>assets/js/select2.min.js"></script>
 
 <!-- ace scripts -->
-<script src="../../../assets/js/ace-elements.min.js"></script>
-<script src="../../../assets/js/ace.min.js"></script>
+<script src="<%=basePath%>assets/js/ace-elements.min.js"></script>
+<script src="<%=basePath%>assets/js/ace.min.js"></script>
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
@@ -812,13 +810,13 @@
 <link rel="stylesheet" href="../../../docs/assets/js/themes/sunburst.css" />
 
 <script type="text/javascript"> ace.vars['base'] = '..'; </script>
-<script src="../../../assets/js/ace/elements.onpage-help.js"></script>
-<script src="../../../assets/js/ace/ace.onpage-help.js"></script>
-<script src="../../../docs/assets/js/rainbow.js"></script>
-<script src="../../../docs/assets/js/language/generic.js"></script>
-<script src="../../../docs/assets/js/language/html.js"></script>
-<script src="../../../docs/assets/js/language/css.js"></script>
-<script src="../../../docs/assets/js/language/javascript.js"></script>
+<script src="<%=basePath%>assets/js/ace/elements.onpage-help.js"></script>
+<script src="<%=basePath%>assets/js/ace/ace.onpage-help.js"></script>
+<script src="<%=basePath%>docs/assets/js/rainbow.js"></script>
+<script src="<%=basePath%>docs/assets/js/language/generic.js"></script>
+<script src="<%=basePath%>docs/assets/js/language/html.js"></script>
+<script src="<%=basePath%>docs/assets/js/language/css.js"></script>
+<script src="<%=basePath%>docs/assets/js/language/javascript.js"></script>
 </body>
 </html>
 
