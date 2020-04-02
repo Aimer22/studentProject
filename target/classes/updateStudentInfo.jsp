@@ -23,7 +23,11 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
             <div class="formControls col-xs-8 col-sm-9" style="width:300px;">
-                <input type="text" class="input-text" value="${studentInfo.sex}" placeholder="" id="sex" name="sex">
+                <select class="select2-allowclear" name="sex">
+                    <option value="">请选择您的性别</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
             </div>
         </div>
         <div class="row cl">
@@ -47,7 +51,12 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>学院：</label>
             <div class="formControls col-xs-8 col-sm-9" style="width:300px;">
-                <input type="text" class="input-text" value="${studentInfo.campus}" placeholder="" id="campus" name="campus">
+                <select class="select2-allowclear" name="campus">
+                    <option value="">请选择您的校区</option>
+                    <option value="共青城校区">共青城校区</option>
+                    <option value="青山湖校区">青山湖校区</option>
+                    <option value="瑶湖校区">瑶湖校区</option>
+                </select>
             </div>
         </div>
         <div class="row cl">
@@ -59,13 +68,23 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>班级：</label>
             <div class="formControls col-xs-8 col-sm-9" style="width:300px;">
-                <input type="text" class="input-text" value="${studentInfo.stuClass}" placeholder="" id="stuClass" name="stuClass">
+                <select class="select2-allowclear" name="stuClass">
+                    <option value="" selected>请选择您的班级</option>
+                    <c:forEach items="${stuClasses}" var="stuClasses">
+                        <option value="${stuClasses.class_Id}">${stuClasses.class_Id}</option>
+                    </c:forEach>
+                </select>
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>宿舍：</label>
             <div class="formControls col-xs-8 col-sm-9" style="width:300px;">
-                <input type="text" class="input-text" value="${studentInfo.dorm}" placeholder="" id="dorm" name="dorm">
+                <select class="select2-allowclear" name="dorm">
+                    <option value="" selected>请选择您的宿舍</option>
+                    <c:forEach items="${dorms}" var="dorms">
+                        <option value="${dorms.dorm_Num}">${dorms.dorm_Num}</option>
+                    </c:forEach>
+                </select>
             </div>
         </div>
         <div class="row cl">

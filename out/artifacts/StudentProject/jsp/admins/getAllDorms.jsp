@@ -20,13 +20,13 @@
     <link href="<%=basePath%>lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 用户管理 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 宿舍管理 <span class="c-gray en">&gt;</span> 宿舍列表 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="pd-20">
     <div class="text-c">
         <input type="text" class="input-text" style="width:250px" placeholder="请输入宿舍号" id="" name="">
-        <button type="submit" class="btn btn-success radius"  name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
+        <button type="submit" class="btn btn-success radius"  name="" ><i class="Hui-iconfont">&#xe665;</i> 搜索宿舍信息</button>
     </div>
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加学生','jsp/admins/addDorm.jsp','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加学生</a></span> <span class="r">共有数据：<strong>${studentInfos.size()}</strong> 条</span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加学生','jsp/admins/addDorm.jsp','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加宿舍</a></span> <span class="r">共有数据：<strong>${dorms.size()}</strong> 条</span> </div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
@@ -50,8 +50,8 @@
                     <td>${dorms.allStu}</td>
                     <td>${dorms.livedNum}</td>
                     <td class="td-manage" width="50px">
-                        <a title="编辑" href="" onclick="member_edit('编辑','member-add.html','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
-                        <a title="删除" href="" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                        <a title="编辑"  onclick="member_edit('编辑','updateDorms.jsp','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                        <a title="删除"  onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -62,6 +62,8 @@
 <script type="text/javascript" src="<%=basePath%>lib/layer/1.9.3/layer.js"></script>
 <script type="text/javascript" src="<%=basePath%>static/H-ui.js"></script>
 <script type="text/javascript" src="<%=basePath%>static/H-ui.admin.js"></script>
+<script type="text/javascript" src="<%=basePath%>lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+
 <script type="text/javascript">
     $(function(){
         $('.table-sort').dataTable({
@@ -69,7 +71,7 @@
             "bStateSave": true,//状态保存
             "aoColumnDefs": [
                 //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-                {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
+                {"orderable":false,"aTargets":[0,6]}// 制定列不参与排序
             ]
         });
         $('.table-sort tbody').on( 'click', 'tr', function () {

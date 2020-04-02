@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class StudentInfo {
 	private Integer stuId;
+	private String stuName;
 	private String sex;
 	private Integer age;
 	private	String birthPlace;
@@ -17,8 +18,9 @@ public class StudentInfo {
 	private Integer stuNo;  //外键
 
 
-	public StudentInfo(Integer stuId, String sex, Integer age, String birthPlace, String national, String campus, String major, String stuClass, String dorm, String phone, boolean ifPay, Integer stuNo) {
+	public StudentInfo(Integer stuId, String stuName, String sex, Integer age, String birthPlace, String national, String campus, String major, String stuClass, String dorm, String phone, boolean ifPay, Integer stuNo) {
 		this.stuId = stuId;
+		this.stuName = stuName;
 		this.sex = sex;
 		this.age = age;
 		this.birthPlace = birthPlace;
@@ -40,6 +42,7 @@ public class StudentInfo {
 	public String toString() {
 		return "StudentInfo{" +
 				"stuId=" + stuId +
+				", stuName='" + stuName + '\'' +
 				", sex='" + sex + '\'' +
 				", age=" + age +
 				", birthPlace='" + birthPlace + '\'' +
@@ -148,5 +151,13 @@ public class StudentInfo {
 
 	public void setStuNo(Integer stuNo) {
 		this.stuNo = stuNo;
+	}
+
+	public String getStuName() {
+		return stuName;
+	}
+
+	public void setStuName(String stuName) {
+		this.stuName = stuName;
 	}
 }

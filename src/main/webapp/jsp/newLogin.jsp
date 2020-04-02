@@ -90,7 +90,7 @@
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<select class="chosen-default" name="flag" data-placeholder="Choose a State...">
+															<select class="chosen-default" name="flag" data-placeholder="Choose a State..." id="login_flag">
 																<option value="">选择您的身份</option>
 																<option value="1">教师</option>
 																<option value="2">学生</option>
@@ -107,7 +107,7 @@
                                                     <span class="lbl"> Remember Me</span>
                                                 </label>
 
-                                                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+                                                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" onclick="return checkflag()">
                                                     <i class="ace-icon fa fa-key"></i>
                                                     <span class="bigger-110">Login</span>
                                                 </button>
@@ -159,39 +159,39 @@
                                     <div class="space-6"></div>
                                     <p> Enter your details to begin: </p>
 
-                                    <form method="post" action="<%=basePath%>registrationServlet">
+                                    <form method="post" action="<%=basePath%>registrationServlet" >
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="真实姓名" name="thename"/>
+															<input type="text" class="form-control" placeholder="真实姓名" name="thename" id="thename"/>
 															<i class="ace-icon fa fa-info"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="用户名" name="username"/>
+															<input type="text" class="form-control" placeholder="用户名" name="username" id="username"/>
 															<i class="ace-icon fa fa-user"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="密码" name="password"/>
+															<input type="password" class="form-control" placeholder="密码" name="password" id="password"/>
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="确认密码" name="repassword"/>
+															<input type="password" class="form-control" placeholder="确认密码" name="repassword" id="repassword"/>
 															<i class="ace-icon fa fa-unlock"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<select class="chosen-default" name="flag" id="form-field-select-3" data-placeholder="Choose a State...">
+															<select class="chosen-default" name="flag" id="regist_flag" data-placeholder="Choose a State...">
 																<option value="">选择您的身份</option>
                                                                 <option value="1">教师</option>
 																<option value="2">学生</option>
@@ -215,7 +215,7 @@
                                                     <span class="bigger-110">Reset</span>
                                                 </button>
 
-                                                <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
+                                                <button type="submit" class="width-65 pull-right btn btn-sm btn-success" onclick="return check_regist()">
                                                     <span class="bigger-110">Register</span>
 
                                                     <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
@@ -311,6 +311,52 @@
         });
 
     });
+
+    function checkflag() {
+            var flag = document.getElementById("login_flag").value;
+            if(flag == ""){
+                window.alert("请选择您的身份");
+                return false;
+            }
+    }
+    
+    function check_regist() {
+
+        var thename = document.getElementById("thename").value;
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var repassword = document.getElementById("repassword").value;
+        var regist_flag = document.getElementById("regist_flag").value;
+
+
+        if (thename == ""){
+                window.alert("请填写真实姓名");
+                return false;
+            }
+        if (username == ""){
+            window.alert("请填写用户名");
+            return false;
+        }
+        if (password == ""){
+                window.alert("密码不能为空");
+            return false;
+            }
+        if (repassword == ""){
+            window.alert("请输入确定密码");
+            return false;
+        }
+        if (regist_flag== ""){
+            window.alert("请选择您的身份");
+            return false;
+        }
+        if (password!==repassword){
+            window.alert("两次密码输入不一致，请重新输入");
+            password.value="";
+            repassword.value="";
+            window.location.reload();
+            return false;
+        }
+    }
 </script>
 </body>
 </html>

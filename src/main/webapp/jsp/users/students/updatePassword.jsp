@@ -117,7 +117,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="../../newLogin.jsp">
+                            <a href="<%=basePath%>jsp/newLogin.jsp">
                                 <i class="ace-icon fa fa-power-off"></i>
                                 登录
                             </a>
@@ -269,8 +269,32 @@
 
                         <b class="arrow"></b>
                     </li>
+                </ul>
+            </li>
+            <li class="active open">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-file-o"></i>
+                    <span class="menu-text">
+								缴费信息
+                        <!-- #section:basics/sidebar.layout.badge -->
+								<span class="badge badge-primary">1</span>
 
+                        <!-- /section:basics/sidebar.layout.badge -->
+							</span>
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
 
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+                    <li class="">
+                        <a href="<%=basePath%>getPayInfoServlet">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            查看缴费
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
                 </ul>
             </li>
         </ul><!-- /.nav-list -->
@@ -436,12 +460,12 @@
                                         </span>
                                     </div>
 
-
+                                    <form action="<%=basePath%>updatePasswordServlet" method="post">
                                     <div class="widget-body">
                                         <div class="widget-main">
                                             <label class="col-sm-3 control-label no-padding-right"></label>
                                             <span class="input-icon input-icon-right">
-														<input type="text" id="form-field-icon-2" placeholder="请输入初始密码" name="old_password"/>
+														<input type="password" id="old_password" placeholder="请输入初始密码" name="old_password"/>
 														<i class="ace-icon fa fa-leaf green"></i>
 													</span>
                                             <!-- /section:plugins/date-time.datetimepicker -->
@@ -452,7 +476,7 @@
                                         <div class="widget-main">
                                             <label class="col-sm-3 control-label no-padding-right"></label>
                                             <span class="input-icon input-icon-right">
-														<input type="text"  placeholder="请输入新密码" name="new_password"/>
+														<input type="password"  placeholder="请输入新密码" name="new_password" id="new_password"/>
 														<i class="ace-icon fa fa-leaf red"></i>
 													</span>
                                             <!-- /section:plugins/date-time.datetimepicker -->
@@ -463,17 +487,18 @@
                                         <div class="widget-main">
                                             <label class="col-sm-3 control-label no-padding-right"></label>
                                             <span class="input-icon input-icon-right">
-														<input type="text"  placeholder="请确定密码" name="comfirm_password"/>
+														<input type="password"  placeholder="请确定密码" name="confirm_password" id="confirm_password"/>
 														<i class="ace-icon fa fa-leaf red"></i>
 													</span>
                                             <!-- /section:plugins/date-time.datetimepicker -->
                                         </div>
                                     </div>
                                     <div class="form-actions center">
-                                        <button type="button" class="btn btn-sm btn-success">
+                                        <button type="submit" class="btn btn-sm btn-success" onclick="return checkPassword()">
                                             确认修改
                                         </button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -558,6 +583,40 @@
 <script src="<%=basePath%>docs/assets/js/language/html.js"></script>
 <script src="<%=basePath%>docs/assets/js/language/css.js"></script>
 <script src="<%=basePath%>docs/assets/js/language/javascript.js"></script>
+
+<!--提交按钮检验密码-->
+<script type="text/javascript">
+
+
+    function checkPassword(){
+
+        var pwd1 = document.getElementById("new_password").value;
+        var pwd2 = document.getElementById("confirm_password").value;
+        var pwd3 = document.getElementById("old_password").value;
+
+        if(pwd3 != "" &&pwd1 != "" && pwd2 !=""){
+            if(pwd1 == pwd2){
+                window.alert("修改成功");
+                window.location.reload();
+                // window.alert(pwd3);
+                return true;
+            }
+            else{
+                window.alert("两次密码不同");
+                // window.alert(pwd3);
+                new_password.value="";
+                confirm_password.value="";
+
+                // window.alert(pwd1);
+                // window.alert(pwd2);
+                return false;
+            }
+        }else{
+            window.alert("请将信息完善，谢谢");
+        }
+    }
+
+</script>
 </body>
 
 </html>

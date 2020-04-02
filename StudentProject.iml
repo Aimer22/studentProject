@@ -10,19 +10,21 @@
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
         <sourceRoots>
+          <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
-          <root url="file://$MODULE_DIR$/src/main/webapp/lib" />
-          <root url="file://$MODULE_DIR$/web/jsp" />
-          <root url="file://$MODULE_DIR$/src/main/webapp/jsp/users" />
-          <root url="file://$MODULE_DIR$/src/main/webapp/jsp/admins" />
+          <root url="file://$MODULE_DIR$/src/main/webapp/assets/css" />
+          <root url="file://$MODULE_DIR$/src/main/webapp/hui" />
           <root url="file://$MODULE_DIR$/src/main/webapp/hui/css" />
+          <root url="file://$MODULE_DIR$/src/main/webapp/hui/skin" />
+          <root url="file://$MODULE_DIR$/src/main/webapp/jsp/admins" />
+          <root url="file://$MODULE_DIR$/src/main/webapp/jsp/users" />
+          <root url="file://$MODULE_DIR$/src/main/webapp/lib" />
+          <root url="file://$MODULE_DIR$/src/main/webapp/lib/datatables" />
           <root url="file://$MODULE_DIR$/src/main/webapp/lib/Hui-iconfont" />
           <root url="file://$MODULE_DIR$/src/main/webapp/lib/jquery" />
           <root url="file://$MODULE_DIR$/src/main/webapp/lib/layer" />
-          <root url="file://$MODULE_DIR$/src/main/webapp/hui" />
-          <root url="file://$MODULE_DIR$/src/main/webapp/hui/skin" />
           <root url="file://$MODULE_DIR$/src/main/webapp/static" />
-          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/web/jsp" />
         </sourceRoots>
       </configuration>
     </facet>

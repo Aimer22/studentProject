@@ -56,6 +56,7 @@ public class firstStepServlet extends HttpServlet {
         studentInfo.setDorm(dorm);
         studentInfo.setIfPay(false);
         studentInfo.setStuNo(student.getStuNo());
+        studentInfo.setStuName(student.getStuName());
 
         Tuition tuition=new Tuition();
         tuition.setInsurance(200);
@@ -106,8 +107,7 @@ public class firstStepServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=utf-8");
-        request.setCharacterEncoding("utf-8");
+
         StuClassService stu = new StuClassServiceImpl();
         DormService ds = new DormServiceImpl();
         List<StuClass> stuClasses = stu.getAllClass();

@@ -49,12 +49,12 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${showStuInfos}" var="stuInfos" varStatus="status">
+            <c:forEach items="${studentInfos}" var="stuInfos" varStatus="status">
             <tr class="text-c">
                 <td><input type="checkbox" value="1" name=""></td>
                 <td>${status.index+1}</td>
                 <td>${stuInfos.stuName}</td>
-                <td>${stuInfos.stuId}</td>
+                <td>${stuInfos.stuNo}</td>
                 <td>${stuInfos.sex}</td>
                 <td>${stuInfos.age}</td>
                 <td>${stuInfos.birthPlace}</td>
@@ -65,8 +65,8 @@
                 <td>${stuInfos.dorm}</td>
                 <td>${stuInfos.phone}</td>
                 <td class="td-manage">
-                    <a title="编辑" href="<%=basePath%>updateStudentInfoServlet?stuId=${stuInfos.stuId}" onclick="member_edit('编辑','','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
-                    <a title="删除" href="<%=basePath%>deleteStudentInfoServlet?stuId=${stuInfos.stuId}" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                    <a title="编辑" onclick="member_edit('编辑','<%=basePath%>updateStudentInfoServlet?stuId=${stuInfos.stuId}','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                    <a title="删除" href="<%=basePath%>deleteStudentInfoServlet?stuId=${stuInfos.stuId}" onclick="member_del('this','1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
             </tr>
             </c:forEach>
             </tbody>
@@ -136,12 +136,12 @@
         layer_show(title,url,w,h);
     }
     /*用户-删除*/
-    function member_del(obj,id){
+    /*function member_del(obj,id){
         layer.confirm('确认要删除吗？',function(index){
             $(obj).parents("tr").remove();
             layer.msg('已删除!',{icon:1,time:1000});
         });
-    }
+    }*/
 </script>
 </body>
 </html>

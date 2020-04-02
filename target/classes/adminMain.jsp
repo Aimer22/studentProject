@@ -26,8 +26,8 @@
         <li class="dropDown dropDown_hover"><a href="#" class="dropDown_A"> <i class="Hui-iconfont">&#xe6d5;</i></a>
             <ul class="dropDown-menu radius box-shadow">
                 <li><a href="#">管理员信息</a></li>
-                <li><a href="<%=basePath%>jsp/login.jsp">切换账户</a></li>
-                <li><a href="<%=basePath%>jsp/login.jsp">退出</a></li>
+                <li><a href="<%=basePath%>logoutServlet">切换账户</a></li>
+                <li><a href="<%=basePath%>logoutServlet">退出</a></li>
             </ul>
         </li>
         <li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>

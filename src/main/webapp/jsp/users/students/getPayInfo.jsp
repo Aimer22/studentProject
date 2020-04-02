@@ -118,7 +118,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="jsp/newLogin.jsp">
+                            <a href="<%=basePath%>jsp/newLogin.jsp">
                                 <i class="ace-icon fa fa-power-off"></i>
                                 登录
                             </a>
@@ -288,6 +288,7 @@
                         <b class="arrow"></b>
                     </li>
                 </ul>
+
         </ul><!-- /.nav-list -->
 
         <!-- #section:basics/sidebar.layout.minimize -->

@@ -20,13 +20,13 @@
     <link href="<%=basePath%>lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>班级中心 <span class="c-gray en">&gt;</span> 用户管理 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>班级管理 <span class="c-gray en">&gt;</span> 班级列表 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="pd-20">
     <div class="text-c">
         <input type="text" class="input-text" style="width:250px" placeholder="请输入班级号" id="" name="">
         <button type="submit" class="btn btn-success radius"  name=""><i class="Hui-iconfont">&#xe665;</i> 查找班级</button>
     </div>
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加学生','jsp/admins/addDorm.jsp','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加学生</a></span> <span class="r">共有数据：<strong>${stuClasses.size()}</strong> 条</span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加学生','jsp/admins/addDorm.jsp','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加班级</a></span> <span class="r">共有数据：<strong>${stuClasses.size()}</strong> 条</span> </div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
@@ -45,7 +45,7 @@
                     <td><input type="checkbox" value="1" name=""></td>
                     <td>${status.index+1}</td>
                     <td>${list.class_Id}</td>
-                    <td>${list.stu_Count}</td>
+                    <td>${list.stu_Count}<span style="color: #0f9ae0">--><a href="<%=basePath%>getClassInfoServlet?class_Id=${list.class_Id}" style="color: #00CC00">点击查看</a></span></td>
                     <td>${list.max_Num}</td>
                     <td class="td-manage" width="50px">
                         <a title="编辑" href="" onclick="member_edit('编辑','member-add.html','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
@@ -59,7 +59,10 @@
 <script type="text/javascript" src="<%=basePath%>lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>lib/layer/1.9.3/layer.js"></script>
 <script type="text/javascript" src="<%=basePath%>static/H-ui.js"></script>
-<script type="text/javascript" src="<%=basePath%>static/H-ui.admin.js"></script>
+<script type="text/javascript" src="<%=basePath%>static/H-ui.admin.js"></script><%--
+<script type="text/javascript" src="../../lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript" src="../../lib/My97DatePicker/WdatePicker.js"></script>--%>
+<script type="text/javascript" src="<%=basePath%>lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
     $(function(){
         $('.table-sort').dataTable({
@@ -67,7 +70,7 @@
             "bStateSave": true,//状态保存
             "aoColumnDefs": [
                 //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-                {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
+                {"orderable":false,"aTargets":[0,5]}// 制定列不参与排序
             ]
         });
         $('.table-sort tbody').on( 'click', 'tr', function () {

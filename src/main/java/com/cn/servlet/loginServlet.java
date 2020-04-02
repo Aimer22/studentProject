@@ -81,7 +81,7 @@ public class loginServlet extends HttpServlet {
 								+"window.location.href='jsp/users/teachers/teacherMain.jsp'</script>");
 					}
 				}else {
-					out.write("<script>alert('密码有误，请重新输入。')"
+					out.write("<script>alert('密码有误，请重新输入。');"
 							+"window.location.href='jsp/newLogin.jsp'</script>");
 				}
 			}
@@ -102,7 +102,7 @@ public class loginServlet extends HttpServlet {
 							+"window.location.href='jsp/users/students/studentMain_1.jsp'</script>");
 
 				}else {
-					out.write("<script>alert('密码有误，请重新输入。')"
+					out.write("<script>alert('密码有误，请重新输入。');"
 				+"window.location.href='jsp/newLogin.jsp'</script>");
 				}
 			} else {
@@ -124,11 +124,11 @@ public class loginServlet extends HttpServlet {
 					out.write("<script>alert('登陆成功，欢迎您！"+admin.getAdminUsername()+"');"
 							+"window.location.href='jsp/admins/adminMain.jsp'</script>");
 				}else{
-					out.write("<script>alert('密码有误，请重新输入。')"
+					out.write("<script>alert('密码有误，请重新输入。');"
 							+"window.location.href='jsp/newLogin.jsp'</script>");
 				}
 				}else {
-				out.write("<script>alert('该用户不存在，请重新输入。')"
+				out.write("<script>alert('该用户不存在，请重新输入。');"
 						+"window.location.href='jsp/newLogin.jsp'</script>");
 			}
 			}

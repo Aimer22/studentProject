@@ -1,8 +1,14 @@
 package com.cn.servlet;
 
 
+import com.cn.domain.Dorm;
+import com.cn.domain.StuClass;
 import com.cn.domain.StudentInfo;
+import com.cn.service.DormService;
+import com.cn.service.StuClassService;
 import com.cn.service.StudentInfoService;
+import com.cn.service.impl.DormServiceImpl;
+import com.cn.service.impl.StuClassServiceImpl;
 import com.cn.service.impl.StudentInfoServiceImpl;
 
 import javax.servlet.ServletException;
@@ -12,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet("/updateStudentInfoServlet")
 public class updateStudentInfoServlet extends HttpServlet {
@@ -49,10 +56,14 @@ public class updateStudentInfoServlet extends HttpServlet {
        int stuId=Integer.valueOf(request.getParameter("stuId"));
 
        studentInfo=studentInfoService.getStuInfoById(stuId);
-       System.out.println(studentInfo);
+       System.out.println(studentInfo); StuClassService stu = new StuClassServiceImpl();
+       DormService ds = new DormServiceImpl();
+       List<StuClass> stuClasses = stu.getAllClass();
+       List<Dorm> dorms = ds.getAllDorm();
+       request.setAttribute("stuClasses",stuClasses);
+       request.setAttribute("dorms",dorms);
 
-
-        request.setAttribute("studentInfo",studentInfo);
-        request.getRequestDispatcher("jsp/admins/updateStudentInfo.jsp").forward(request,response);
+       request.setAttribute("studentInfo",studentInfo);
+       request.getRequestDispatcher("jsp/admins/updateStudentInfo.jsp").forward(request,response);
     }
 }

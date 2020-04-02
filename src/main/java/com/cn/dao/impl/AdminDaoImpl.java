@@ -47,7 +47,7 @@ public class AdminDaoImpl implements AdminDao {
 
     @Override
     public int updateAdmin(Admin admin) throws SQLException {
-        String sql="update admin set adminUserName=?,adminPassword=?,flag=?,ifUse=?,registTimes=?,loginTimes where adminId=?";
+        String sql="update admin set adminUserName=?,adminPassword=?,flag=?,ifUse=?,registTimes=?,loginTimes=? where adminId=?";
         conn=JDBCUtil.getConnection();
         pst=conn.prepareStatement(sql);
         pst.setObject(1,admin.getAdminUsername());
@@ -56,6 +56,7 @@ public class AdminDaoImpl implements AdminDao {
         pst.setObject(4,admin.getIfUse());
         pst.setObject(5,admin.getRegistTimes());
         pst.setObject(6,admin.getLoginTimes());
+        pst.setObject(7,admin.getAdminId());
         int status=pst.executeUpdate();
         conn.close();
         pst.close();

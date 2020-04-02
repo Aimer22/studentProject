@@ -24,20 +24,21 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
 
 	@Override
 	public int addStudentInfo(StudentInfo studentInfo) throws SQLException {
-		String sql="insert into studentinfo (sex,age,birthPlace,stuNational,campus,major,stuClass,dorm,phone,ifPay,stuNo) values(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into studentinfo (stuName,sex,age,birthPlace,stuNational,campus,major,stuClass,dorm,phone,ifPay,stuNo) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		conn= JDBCUtil.getConnection();
 		pst=conn.prepareStatement(sql);
-		pst.setObject(1, studentInfo.getSex());
-		pst.setObject(2, studentInfo.getAge());
-		pst.setObject(3, studentInfo.getBirthPlace());
-		pst.setObject(4, studentInfo.getNational());
-		pst.setObject(5, studentInfo.getCampus());
-		pst.setObject(6, studentInfo.getMajor());
-		pst.setObject(7, studentInfo.getStuClass());
-		pst.setObject(8, studentInfo.getDorm());
-		pst.setObject(9, studentInfo.getPhone());
-		pst.setObject(10, studentInfo.isIfPay());
-		pst.setObject(11, studentInfo.getStuNo());
+		pst.setObject(1,studentInfo.getStuName());
+		pst.setObject(2, studentInfo.getSex());
+		pst.setObject(3, studentInfo.getAge());
+		pst.setObject(4, studentInfo.getBirthPlace());
+		pst.setObject(5, studentInfo.getNational());
+		pst.setObject(6, studentInfo.getCampus());
+		pst.setObject(7, studentInfo.getMajor());
+		pst.setObject(8, studentInfo.getStuClass());
+		pst.setObject(9, studentInfo.getDorm());
+		pst.setObject(10, studentInfo.getPhone());
+		pst.setObject(11, studentInfo.isIfPay());
+		pst.setObject(12, studentInfo.getStuNo());
 		int status=pst.executeUpdate();
 		conn.close();
 		pst.close();
@@ -59,22 +60,23 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
 
 	@Override
 	public int update(StudentInfo studentInfo) throws SQLException {
-		String sql="update studentinfo set sex=?,age=?,birthPlace=?,stuNational=?,campus=?,major=?,stuClass=?,dorm=?,phone=?,ifPay=?,stuNo=? where stuId=?";
+		String sql="update studentinfo set stuName=?,sex=?,age=?,birthPlace=?,stuNational=?,campus=?,major=?,stuClass=?,dorm=?,phone=?,ifPay=?,stuNo=? where stuId=?";
 		conn=JDBCUtil.getConnection();
 		pst=conn.prepareStatement(sql);
 
-		pst.setObject(1,studentInfo.getSex());
-		pst.setObject(2, studentInfo.getAge());
-		pst.setObject(3, studentInfo.getBirthPlace());
-		pst.setObject(4, studentInfo.getNational());
-		pst.setObject(5, studentInfo.getCampus());
-		pst.setObject(6, studentInfo.getMajor());
-		pst.setObject(7, studentInfo.getStuClass());
-		pst.setObject(8, studentInfo.getDorm());
-		pst.setObject(9, studentInfo.getPhone());
-		pst.setObject(10, studentInfo.isIfPay());
-		pst.setObject(11, studentInfo.getStuNo());
-		pst.setObject(12, studentInfo.getStuId());
+		pst.setObject(1,studentInfo.getStuName());
+		pst.setObject(2, studentInfo.getSex());
+		pst.setObject(3, studentInfo.getAge());
+		pst.setObject(4, studentInfo.getBirthPlace());
+		pst.setObject(5, studentInfo.getNational());
+		pst.setObject(6, studentInfo.getCampus());
+		pst.setObject(7, studentInfo.getMajor());
+		pst.setObject(8, studentInfo.getStuClass());
+		pst.setObject(9, studentInfo.getDorm());
+		pst.setObject(10, studentInfo.getPhone());
+		pst.setObject(11, studentInfo.isIfPay());
+		pst.setObject(12, studentInfo.getStuNo());
+		pst.setObject(13,studentInfo.getStuId());
 		int status=pst.executeUpdate();
 		conn.close();
 		pst.close();
@@ -90,6 +92,7 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
 		List<StudentInfo> studentinfo=new ArrayList<StudentInfo>();
 		while(rs.next()){
 			int stuId=rs.getInt("stuId");
+			String stuName = rs.getString("stuName");
 			String sex=rs.getString("sex");
 			int age=rs.getInt("age");
 			String birthPlace=rs.getString("birthPlace");
@@ -102,7 +105,7 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
 			boolean ifPay=rs.getBoolean("ifPay");
 			int stuNo=rs.getInt("stuNo");
 			
-			StudentInfo studentInfo=new StudentInfo(stuId,sex,age,birthPlace,national
+			StudentInfo studentInfo=new StudentInfo(stuId,stuName,sex,age,birthPlace,national
 			,campus,major,stuClass,dormitory,phone,ifPay,stuNo);
 			studentinfo.add(studentInfo);
 		}
@@ -152,6 +155,7 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
 		rs=pst.executeQuery();
 		StudentInfo studentInfo=null;
 		while(rs.next()) {
+			String stuName = rs.getString("stuName");
 			String sex=rs.getString("sex");
 			int age=rs.getInt("age");
 			String birthPlace=rs.getString("birthPlace");
@@ -164,7 +168,7 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
 			boolean ifPay=rs.getBoolean("ifPay");
 			int stuNo=rs.getInt("stuNo");
 
-			studentInfo=new StudentInfo(stuId,sex,age,birthPlace,national
+			studentInfo=new StudentInfo(stuId,stuName,sex,age,birthPlace,national
 					,campus,major,stuClass,dormitory,phone,ifPay,stuNo);
 			
 		}
@@ -184,6 +188,7 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
 		StudentInfo studentInfo=null;
 		while(rs.next()) {
 			int stuId=rs.getInt("stuId");
+			String stuName = rs.getString("stuName");
 			String sex=rs.getString("sex");
 			int age=rs.getInt("age");
 			String birthPlace=rs.getString("birthPlace");
@@ -195,7 +200,7 @@ public class StudentInfoDaoImpl implements StudentInfoDao {
 			String phone=rs.getString("phone");
 			boolean ifPay=rs.getBoolean("ifPay");
 
-			studentInfo=new StudentInfo(stuId,sex,age,birthPlace,national
+			studentInfo=new StudentInfo(stuId,stuName,sex,age,birthPlace,national
 					,campus,major,stuClass,dormitory,phone,ifPay,stuNo);
 			
 		}

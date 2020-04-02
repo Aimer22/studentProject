@@ -31,6 +31,7 @@ public class secondStepServlet extends HttpServlet {
         StudentService studentService = new StudentServiceImpl();
         TuitionService tuitionService = new TuitionServiceImpl();
         Tuition tuition = tuitionService.getTuitionBystuNo(student.getStuNo());
+        System.out.println("拿到了订单"+tuition);
         StudentInfo studentInfo = studentInfoService.getStuInfoByNo(student.getStuNo());
         //更新付款状态
         student.setIf_finished_secondStep(true);

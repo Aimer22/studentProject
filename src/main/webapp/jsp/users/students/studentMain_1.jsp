@@ -54,6 +54,17 @@
     <script src="<%=basePath%>assets/js/html5shiv.min.js"></script>
     <script src="<%=basePath%>assets/js/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+        #bg{
+            background-image: url(<%=basePath%>img/kaixue.jpg);
+            background-repeat: no-repeat;
+            background-size: 70% 100%;
+            position: center;
+
+        }
+
+    </style>
 </head>
 <body class="no-skin">
 <!-- #section:basics/navbar.layout -->
@@ -117,7 +128,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="jsp/newLogin.jsp">
+                            <a href="<%=basePath%>jsp/newLogin.jsp" id="loginCheck">
                                 <i class="ace-icon fa fa-power-off"></i>
                                 登录
                             </a>
@@ -287,6 +298,63 @@
                         <b class="arrow"></b>
                     </li>
                 </ul>
+            </li>
+            <li class="active open">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-file-o"></i>
+                    <span class="menu-text">
+								空白页
+                        <!-- #section:basics/sidebar.layout.badge -->
+								<span class="badge badge-primary">1</span>
+
+                        <!-- /section:basics/sidebar.layout.badge -->
+							</span>
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+                    <li class="">
+                        <a href="#">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            blank page
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+                <ul class="submenu">
+                    <li class="">
+                        <a href="#">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            blank page
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+                <ul class="submenu">
+                    <li class="">
+                        <a href="#">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            blank page
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+                <ul class="submenu">
+                    <li class="">
+                        <a href="#">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            blank page
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
         </ul><!-- /.nav-list -->
 
         <!-- #section:basics/sidebar.layout.minimize -->
@@ -428,13 +496,13 @@
             </div><!-- /.ace-settings-container -->
 
             <!-- /section:settings.box -->
-            <div class="page-content-area"  style="background-color: antiquewhite">
-                <div class="row">
-                    <div class="col-xs-12" >
+            <div class="page-content-area" id="bg">
+                <div class="row" >
+                    <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
 
 
-
+<%--                        <img src="<%=basePath%>img/kaixue.jpg">--%>
 
 
 
@@ -483,6 +551,11 @@
 
 
 <!-- basic scripts -->
+<script type="text/javascript">
+    jQuery(function () {
+
+    })
+</script>
 
 <!--[if !IE]> -->
 <script type="text/javascript">
@@ -521,6 +594,8 @@
 <script src="<%=basePath%>docs/assets/js/language/html.js"></script>
 <script src="<%=basePath%>docs/assets/js/language/css.js"></script>
 <script src="<%=basePath%>docs/assets/js/language/javascript.js"></script>
+
+
 </body>
 
 </html>

@@ -118,7 +118,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="../../newLogin.jsp">
+                            <a href="<%=basePath%>jsp/newLogin.jsp">
                                 <i class="ace-icon fa fa-power-off"></i>
                                 登录
                             </a>
@@ -272,6 +272,32 @@
                     </li>
 
 
+                </ul>
+            </li>
+            <li class="active open">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-file-o"></i>
+                    <span class="menu-text">
+								缴费信息
+                        <!-- #section:basics/sidebar.layout.badge -->
+								<span class="badge badge-primary">1</span>
+
+                        <!-- /section:basics/sidebar.layout.badge -->
+							</span>
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+                    <li class="">
+                        <a href="<%=basePath%>getPayInfoServlet">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            查看缴费
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
                 </ul>
             </li>
         </ul><!-- /.nav-list -->
@@ -441,6 +467,12 @@
                                         <div class="step-content pos-rel" id="step-container">
                                             <div class="step-pane active" id="step1">
                                                 <h3 class="lighter block green">Enter the following information</h3>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 姓名 </label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" placeholder=""  value="${student.stuName}" disabled="disabled" class="col-xs-10 col-sm-5 col-lg-1" name="stuName" />
+                                                    </div>
+                                                </div>
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 年龄 </label>
                                                     <div class="col-sm-9">

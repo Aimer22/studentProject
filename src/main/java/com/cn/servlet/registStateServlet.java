@@ -34,7 +34,6 @@ public class registStateServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         Student student = (Student) session.getAttribute("student");
-        System.out.println(student);
         if (student!=null){
             //获取登录用户信息
             request.setAttribute("student",student);
@@ -47,7 +46,20 @@ public class registStateServlet extends HttpServlet {
 
                 request.getRequestDispatcher("jsp/users/students/registSucceed.jsp").forward(request,response);
             }else if (first==true&&second==false){
-
+                Tuition tuition=new Tuition();
+                tuition.setInsurance(200);
+                tuition.setAccommodation(1000);
+                tuition.setFees(5000);
+                tuition.setSpendOnBook(400);
+                tuition.setStuNo(student.getStuNo());
+                tuition.setStateOfPay(false);
+                TuitionService tuitionService = new TuitionServiceImpl();
+                tuitionService.addTuition(tuition);
+                StudentInfoService studentInfoService = new StudentInfoServiceImpl();
+                Tuition tuitions = tuitionService.getTuitionBystuNo(student.getStuNo());
+                StudentInfo studentInfo = studentInfoService.getStuInfoByNo(student.getStuNo());
+                request.setAttribute("tuition",tuitions);
+                request.setAttribute("studentInfo",studentInfo);
                 request.getRequestDispatcher("jsp/users/students/secondStep.jsp").forward(request,response);
 
             }else {
