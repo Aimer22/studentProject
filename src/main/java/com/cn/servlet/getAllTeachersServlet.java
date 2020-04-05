@@ -18,8 +18,7 @@ public class getAllTeachersServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=utf-8");
-        request.setCharacterEncoding("utf-8");
+
         TeacherService teacherService=new TeacherServiveImpl();
         List<Teacher> teachers=teacherService.getAllTeacher();
         request.setAttribute("teachers",teachers);

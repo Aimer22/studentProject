@@ -18,8 +18,6 @@ public class getAllTuitionsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=utf-8");
-        request.setCharacterEncoding("utf-8");
 
         TuitionService tuitionService=new TuitionServiceImpl();
         List<Tuition> tuitions=tuitionService.getAllTuition();

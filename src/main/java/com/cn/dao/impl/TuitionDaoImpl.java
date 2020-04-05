@@ -15,7 +15,7 @@ public class TuitionDaoImpl implements TuitionDao {
     private ResultSet rs;
     @Override
     public int addTuition(Tuition tuition) throws SQLException {
-        String sql="insert into tuition (orderNo,fees,spendOnBook,accommodation,insurance,amount,timeOfPay,stateOfPay,stuNo) values(?,?,?,?,?,?,?,?,?)";
+        String sql="insert into tuition (orderNo,fees,spendOnBook,accommodation,insurance,amount,timeOfPay,stateOfPay,stuNo,payer) values(?,?,?,?,?,?,?,?,?,?)";
         conn= JDBCUtil.getConnection();
         pst=conn.prepareStatement(sql);
         pst.setObject(1, tuition.getOrderNo());
@@ -27,6 +27,7 @@ public class TuitionDaoImpl implements TuitionDao {
         pst.setObject(7, tuition.getTimeOfPay());
         pst.setObject(8, tuition.isStateOfPay());
         pst.setObject(9,tuition.getStuNo());
+        pst.setObject(10,tuition.getPayer());
         int status=pst.executeUpdate();
         conn.close();
         pst.close();
@@ -48,7 +49,7 @@ public class TuitionDaoImpl implements TuitionDao {
 
     @Override
     public int updateTuition(Tuition tuition) throws SQLException {
-            String sql="update tuition set timeOfPay=?,stateOfpay=?,fees=?,spendOnBook=?,accommodation=?,insurance=?,amount=?,orderNo=? where stuNo=?";
+            String sql="update tuition set timeOfPay=?,stateOfpay=?,fees=?,spendOnBook=?,accommodation=?,insurance=?,amount=?,orderNo=?,payer=? where stuNo=?";
             conn=JDBCUtil.getConnection();
             pst=conn.prepareStatement(sql);
             pst.setObject(1,tuition.getTimeOfPay());
@@ -59,7 +60,8 @@ public class TuitionDaoImpl implements TuitionDao {
             pst.setObject(6,tuition.getInsurance());
             pst.setObject(7,tuition.getAmount());
             pst.setObject(8,tuition.getOrderNo());
-            pst.setObject(9,tuition.getStuNo());
+            pst.setObject(9,tuition.getPayer());
+            pst.setObject(10,tuition.getStuNo());
 
 
             int recordNum=pst.executeUpdate();
@@ -77,6 +79,7 @@ public class TuitionDaoImpl implements TuitionDao {
         List<Tuition> tuitionList=new ArrayList<Tuition>();
         while (rs.next()){
             int orderNo=rs.getInt("orderNo");
+            String payer = rs.getString("payer");
             int fees=rs.getInt("fees");
             int spendOnBook=rs.getInt("spendOnBook");
             int accommodation=rs.getInt("accommodation");
@@ -86,7 +89,7 @@ public class TuitionDaoImpl implements TuitionDao {
             boolean stateOfPay=rs.getBoolean("stateOfPay");
             int stuNo = rs.getInt("stuNo");
 
-            Tuition tuition=new Tuition(orderNo,fees,spendOnBook,
+            Tuition tuition=new Tuition(orderNo,payer,fees,spendOnBook,
                     accommodation,insurance,amount,timeOfPay,stateOfPay,stuNo);
             tuitionList.add(tuition);
         }
@@ -106,6 +109,7 @@ public class TuitionDaoImpl implements TuitionDao {
         Tuition tuition=null;
         while (rs.next()){
             int orderNo=rs.getInt("orderNo");
+            String payer = rs.getString("payer");
             int fees=rs.getInt("fees");
             int spendOnBook=rs.getInt("spendOnBook");
             int accommodation=rs.getInt("accommodation");
@@ -115,7 +119,7 @@ public class TuitionDaoImpl implements TuitionDao {
             boolean stateOfPay=rs.getBoolean("stateOfPay");
 
 
-            tuition=new Tuition(orderNo,fees,spendOnBook,
+            tuition=new Tuition(orderNo,payer,fees,spendOnBook,
                     accommodation,insurance,amount,timeOfPay,stateOfPay,stuNo);
 
         }

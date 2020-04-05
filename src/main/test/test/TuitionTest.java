@@ -25,7 +25,7 @@ public class TuitionTest {
     }
     public void deleteTuition(){
     }
-
+@Test
     public void testGetAllTuition(){
         tuitionList=tuitionService.getAllTuition();
         for (Tuition tuition:tuitionList){

@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class Tuition {
     private Integer orderNo;
+    private String payer;
     private Integer fees;
     private Integer spendOnBook;
     private Integer accommodation;
@@ -16,8 +17,9 @@ public class Tuition {
     public Tuition() {
     }
 
-    public Tuition(Integer orderNo, Integer fees, Integer spendOnBook, Integer accommodation, Integer insurance, Integer amount, Timestamp timeOfPay, boolean stateOfPay, Integer stuNo) {
+    public Tuition(Integer orderNo, String payer, Integer fees, Integer spendOnBook, Integer accommodation, Integer insurance, Integer amount, Timestamp timeOfPay, boolean stateOfPay, Integer stuNo) {
         this.orderNo = orderNo;
+        this.payer = payer;
         this.fees = fees;
         this.spendOnBook = spendOnBook;
         this.accommodation = accommodation;
@@ -100,10 +102,19 @@ public class Tuition {
         this.stuNo = stuNo;
     }
 
+    public String getPayer() {
+        return payer;
+    }
+
+    public void setPayer(String payer) {
+        this.payer = payer;
+    }
+
     @Override
     public String toString() {
         return "Tuition{" +
                 "orderNo=" + orderNo +
+                ", payer='" + payer + '\'' +
                 ", fees=" + fees +
                 ", spendOnBook=" + spendOnBook +
                 ", accommodation=" + accommodation +

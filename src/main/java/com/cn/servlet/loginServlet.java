@@ -42,13 +42,11 @@ public class loginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");
-		request.setCharacterEncoding("utf-8");
-		
+
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
 		int flag=Integer.parseInt(request.getParameter("flag"));
-		System.out.println(username);
+
 		
 		StudentService studentService=new StudentServiceImpl();
 		TeacherService teacherService=new TeacherServiveImpl();
@@ -56,8 +54,7 @@ public class loginServlet extends HttpServlet {
 		Student student=studentService.getStudentByUserName(username);
 		Teacher teacher=teacherService.getTeacherByUserName(username);
 		Admin admin=adminService.getAdminByUsername(username);
-		System.out.println(student);
-		System.out.println(flag);
+
 				
 		//创建session，存储登录的用户对象
 		HttpSession session=request.getSession();

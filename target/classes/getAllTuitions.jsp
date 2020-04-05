@@ -51,16 +51,17 @@
                 <tr class="text-c">
                     <td><input type="checkbox" value="1" name=""></td>
                     <td>${status.index+1}</td>
-                    <td>${tuitions.stuId}</td>
+                    <td>${tuitions.orderNo}</td>
                     <td>${tuitions.payer}</td>
                     <td>${tuitions.fees}</td>
                     <td>${tuitions.spendOnBook}</td>
                     <td>${tuitions.accommodation}</td>
                     <td>${tuitions.insurance}</td>
                     <td>${tuitions.amount}</td>
-                    <td>${tuitions.payTime}</td>
-                    <c:if test="${tuitions.stateOfPay == false}"><!-- 如果 -->
-                    <td>未支付</td>
+                    <td>${tuitions.timeOfPay}</td>
+
+                    <c:if test="${tuitions.stateOfPay}">
+                    <td style="color: #0a6999">已支付</td>
                     </c:if>
 
                     <td class="td-manage" width="50px">
@@ -86,7 +87,7 @@
             "bStateSave": true,//状态保存
             "aoColumnDefs": [
                 //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-                {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
+                {"orderable":false,"aTargets":[0,11]}// 制定列不参与排序
             ]
         });
         $('.table-sort tbody').on( 'click', 'tr', function () {
