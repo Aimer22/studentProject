@@ -37,21 +37,24 @@ public class getStudentInfoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-
 		PrintWriter out = response.getWriter();
 
 		HttpSession session = request.getSession();
 		Student student = (Student) session.getAttribute("student");
 		if (student!=null){
-			//从Session中获取登录对象，将其转发到页面中
+			if(student.isIf_finished_firstStep()==false){
+				out.write("<script>alert('同学，请先完成报到');"
+						+"window.location.href='jsp/users/students/registState.jsp'</script>");
+			}else {
+				//从Session中获取登录对象，将其转发到页面中
+				StudentInfoService studentInfoService = new StudentInfoServiceImpl();
+				StudentInfo studentInfo = studentInfoService.getStuInfoByNo(student.getStuNo());
+				request.setAttribute("student", student);
+				request.setAttribute("studentInfo",studentInfo);
+				System.out.println("拿到了studentInfo"+studentInfo);
+				request.getRequestDispatcher("jsp/users/students/ownInfo.jsp").forward(request, response);
+			}
 
-			StudentInfoService studentInfoService = new StudentInfoServiceImpl();
-			StudentInfo studentInfo = studentInfoService.getStuInfoByNo(student.getStuNo());
-			request.setAttribute("student", student);
-			request.setAttribute("studentInfo",studentInfo);
-			System.out.println("拿到了studentInfo"+studentInfo);
-			request.getRequestDispatcher("jsp/users/students/ownInfo.jsp").forward(request, response);
 		}else {
 			out.write("<script>alert('请先登录');"
 					+"window.location.href='jsp/newLogin.jsp'</script>");

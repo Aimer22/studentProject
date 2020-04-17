@@ -18,13 +18,15 @@ public class getAccountInfoServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         PrintWriter out = response.getWriter();
 
         HttpSession session = request.getSession();
         Student student = (Student) session.getAttribute("student");
         if (student!=null){
-            request.getRequestDispatcher("jsp/users/students/accountInfo.jsp").forward(request,response);
+
+                request.setAttribute("student",student);
+                request.getRequestDispatcher("jsp/users/students/accountInfo.jsp").forward(request,response);
+
         }else {
                 out.write("<script>alert('请先登录');"
                         +"window.location.href='jsp/newLogin.jsp'</script>");

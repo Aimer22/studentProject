@@ -20,8 +20,6 @@ public class firstStepServlet extends HttpServlet {
     private static Logger logger=Logger.getLogger(firstStepServlet.class);
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("第一步已完成");
-        response.setContentType("text/html;charset=utf-8");
-        request.setCharacterEncoding("utf-8");
 
         /**
          * 获取页面请求信息

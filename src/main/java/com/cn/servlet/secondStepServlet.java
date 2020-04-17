@@ -24,9 +24,6 @@ public class secondStepServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获取线程
         Student student = (Student) request.getSession().getAttribute("student");
-        System.out.println(student);
-
-
         StudentInfoService studentInfoService = new StudentInfoServiceImpl();
         StudentService studentService = new StudentServiceImpl();
         TuitionService tuitionService = new TuitionServiceImpl();
@@ -38,13 +35,9 @@ public class secondStepServlet extends HttpServlet {
         tuition.setStateOfPay(true);
         tuition.setTimeOfPay(DateUtil.now());
         studentInfo.setIfPay(true);
-
         int recordNum1 = tuitionService.updateTuition(tuition);
         int recordNum2 = studentInfoService.updateStuInfo(studentInfo);
         int recordNum3 = studentService.update(student);
-        System.out.println("recordNum1="+recordNum1);
-        System.out.println("recordNum2="+recordNum2);
-        System.out.println("recordNum3="+recordNum3);
         if(recordNum1==1&&recordNum2==1&&recordNum3==1){
             request.getRequestDispatcher("jsp/users/students/registSucceed.jsp").forward(request,response);
         }else {

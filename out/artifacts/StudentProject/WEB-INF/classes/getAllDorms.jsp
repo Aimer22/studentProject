@@ -26,7 +26,7 @@
         <input type="text" class="input-text" style="width:250px" placeholder="请输入宿舍号" id="" name="">
         <button type="submit" class="btn btn-success radius"  name="" ><i class="Hui-iconfont">&#xe665;</i> 搜索宿舍信息</button>
     </div>
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加学生','jsp/admins/addDorm.jsp','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加宿舍</a></span> <span class="r">共有数据：<strong>${dorms.size()}</strong> 条</span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加学生','jsp/admins/addDorm.jsp','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加宿舍</a></span> <span class="r">共有宿舍：<strong>${dorms.size()}</strong> 间</span> </div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
@@ -48,7 +48,9 @@
                     <td>${dorms.dorm_Num}</td>
                     <td>${dorms.dorm_Sex}</td>
                     <td>${dorms.allStu}</td>
-                    <td>${dorms.livedNum}</td>
+                    <td>${dorms.livedNum}
+                        <span style="color: indianred">---><a href="<%=basePath%>getStuInfoByDormServlet?dorm_Num=${dorms.dorm_Num}" style="color: #00b3ee">点击查看</a></span>
+                    </td>
                     <td class="td-manage" width="50px">
                         <a title="编辑"  onclick="member_edit('编辑','updateDorms.jsp','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
                         <a title="删除"  onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>

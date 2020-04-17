@@ -70,6 +70,9 @@
             </tbody>
         </table>
     </div>
+    <div class="text-c">
+        <button type="submit" class="btn btn-success radius"  name="" href="">返回</button>
+    </div>
 </div>
 <script type="text/javascript" src="<%=basePath%>lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>lib/layer/1.9.3/layer.js"></script>

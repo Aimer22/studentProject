@@ -24,18 +24,23 @@ public class getPayInfoServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Student student = (Student) request.getSession().getAttribute("student");
-
         PrintWriter out = response.getWriter();
-
+        System.out.println("我也来了！");
         if (student!=null){
-            TuitionService tuitionService = new TuitionServiceImpl();
-            StudentInfoService studentInfoService = new StudentInfoServiceImpl();
-            StudentInfo studentInfo = studentInfoService.getStuInfoByNo(student.getStuNo());
-            Tuition tuition = tuitionService.getTuitionBystuNo(student.getStuNo());
-            request.setAttribute("tuition",tuition);
-            request.setAttribute("studentInfo",studentInfo);
+            if(student.isIf_finished_firstStep()==false){
+                out.write("<script>alert('同学，请先完成报到');"
+                        +"window.location.href='jsp/users/students/registState.jsp'</script>");
+            }else {
+                TuitionService tuitionService = new TuitionServiceImpl();
+                StudentInfoService studentInfoService = new StudentInfoServiceImpl();
+                StudentInfo studentInfo = studentInfoService.getStuInfoByNo(student.getStuNo());
+                Tuition tuition = tuitionService.getTuitionBystuNo(student.getStuNo());
+                request.setAttribute("tuition",tuition);
+                request.setAttribute("studentInfo",studentInfo);
 
-            request.getRequestDispatcher("jsp/users/students/getPayInfo.jsp").forward(request,response);
+                request.getRequestDispatcher("jsp/users/students/getPayInfo.jsp").forward(request,response);
+            }
+
         }else {
             out.write("<script>alert('请先登录');"
                     +"window.location.href='jsp/newLogin.jsp'</script>");

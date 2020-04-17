@@ -21,8 +21,6 @@ public class getAllStudentServlet extends HttpServlet {
 
         StudentInfoService studentInfoService=new StudentInfoServiceImpl();
         List<StudentInfo> studentInfos=studentInfoService.getAllStuInfo();
-
-//        }
         req.setAttribute("studentInfos",studentInfos);
         req.getRequestDispatcher("jsp/admins/getAllStudent.jsp").forward(req,resp);
 

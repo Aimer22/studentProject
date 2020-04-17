@@ -27,8 +27,7 @@ public class updateStudentInfoServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=utf-8");
-        request.setCharacterEncoding("utf-8");
+
         // 请求数据，并将数据进行封装
         studentInfo.setSex(request.getParameter("sex"));
         studentInfo.setAge(Integer.valueOf(request.getParameter("age")));
